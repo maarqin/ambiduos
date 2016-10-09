@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_destino"
+            android:icon="@mipmap/ic_menu_destino"
+            android:title="Destinos" />
+        <item
+            android:id="@+id/nav_hotel"
+            android:icon="@mipmap/ic_menu_hoteis"
+            android:title="Hotéis" />
+        <item
+            android:id="@+id/nav_buscar"
+            android:icon="@mipmap/ic_menu_search"
+            android:title="Buscar" />
+    </group>
+    <item android:title="Outras opções">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_minha_conta"
+                    android:icon="@mipmap/ic_menu_account"
+                    android:title="Minha conta" />
+                <item
+                    android:id="@+id/nav_acesso"
+                    android:icon="@mipmap/ic_menu_company_access"
+                    android:title="Acesso corporativo" />
+                <item
+                    android:id="@+id/nav_atendimento"
+                    android:icon="@mipmap/ic_menu_contact"
+                    android:title="Atendimento" />
+                <item
+                    android:id="@+id/nav_somos"
+                    android:icon="@mipmap/ic_menu_papers"
+                    android:title="Quem somos" />
+            </group>
+        </menu>
+    </item>
+</menu>

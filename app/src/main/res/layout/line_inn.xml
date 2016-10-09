@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_bg_destino"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:src="@mipmap/ic_fake_bg"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:id="@+id/tv_pais_destino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#cacaca"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:id="@+id/tv_cidade_destino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#494949"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#cacaca"
+                android:textSize="12sp"
+                android:text="a partir de"
+                android:gravity="end"
+                />
+            <TextView
+                android:id="@+id/tv_valor_destino"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:gravity="right|center_vertical"
+                android:textStyle="bold"
+                android:textColor="@color/colorMonetaryList"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
