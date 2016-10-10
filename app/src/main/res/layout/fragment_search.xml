@@ -1,27 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@android:color/white"
-    >
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:pstsShouldExpand="true"
-        app:pstsIndicatorColor="@color/colorPrimaryDark"
-        app:pstsDividerColor="@android:color/white"
-        app:pstsIndicatorHeight="3dp"
-        app:pstsUnderlineHeight="1dp"
-        app:pstsTabTextAllCaps="false"
-        app:pstsUnderlineColor="@color/colorSeparatorList"
-        />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vpPager"
-        android:gravity="center"
+    <LinearLayout
+        android:id="@+id/ll_hold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        >
+        <com.astuetz.PagerSlidingTabStrip
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:pstsShouldExpand="true"
+            app:pstsIndicatorColor="@color/colorPrimaryDark"
+            app:pstsDividerColor="@android:color/white"
+            app:pstsIndicatorHeight="3dp"
+            app:pstsUnderlineHeight="1dp"
+            app:pstsTabTextAllCaps="false"
+            app:pstsUnderlineColor="@color/colorSeparatorList"
+            />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpPager"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        app:fab_addButtonColorNormal="@color/white"
+        app:fab_addButtonColorPressed="@color/white_pressed"
+        app:fab_addButtonPlusIconColor="@android:color/black"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_title="Action A"
+            app:fab_colorPressed="@color/white_pressed"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/white"
+            app:fab_title="Action with a very long name that won\'t fit on the screen"
+            app:fab_colorPressed="@color/white_pressed"/>
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="16dp"-->
+        <!--android:clickable="true"-->
+        <!--android:backgroundTint="#6187e8"-->
+        <!--android:src="@mipmap/ic_add"-->
+        <!--app:layout_anchor="@id/ll_hold"-->
+        <!--app:layout_anchorGravity="bottom|right|end"/>-->
+
+</android.support.design.widget.CoordinatorLayout>

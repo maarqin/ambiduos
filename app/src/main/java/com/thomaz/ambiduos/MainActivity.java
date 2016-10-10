@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.thomaz.ambiduos.fragment.InnFragment_;
-import com.thomaz.ambiduos.fragment.SearchFragment;
+import com.thomaz.ambiduos.fragment.NewProjectFragment;
 import com.thomaz.ambiduos.fragment.TripPackageFragment_;
 
 import org.androidannotations.annotations.EActivity;
@@ -81,7 +81,7 @@ public class MainActivity extends BaseActivity {
                 fragment = new InnFragment_();
                 break;
             case R.id.nav_buscar :
-                fragment = new SearchFragment();
+                fragment = new NewProjectFragment();
                 break;
             default:
                 fragment = new TripPackageFragment_();

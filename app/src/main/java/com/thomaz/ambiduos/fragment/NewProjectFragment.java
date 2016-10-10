@@ -15,7 +15,7 @@ import com.thomaz.ambiduos.R;
 /**
  * Created by thomaz on 05/10/16.
  */
-public class SearchFragment extends Fragment {
+public class NewProjectFragment extends Fragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override
@@ -32,7 +32,7 @@ public class SearchFragment extends Fragment {
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 2;
+        private static int NUM_ITEMS = 4;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -52,19 +52,18 @@ public class SearchFragment extends Fragment {
                     return new SearchInnFragment();
                 case 1:
                     return new SearchTripPackageFragment();
+                case 2:
+                    return new SearchTripPackageFragment();
+                case 3:
+                    return new SearchTripPackageFragment();
                 default:
                     return null;
             }
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return super.isViewFromObject(view, object);
-        }
-
-        @Override
         public CharSequence getPageTitle(int position) {
-            String[] titles = {"Hotéis", "Destinos"};
+            String[] titles = {"Materiais", "Resíduos", "Caçamba", "Parceiros"};
 
             return titles[position];
         }
