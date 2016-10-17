@@ -3,20 +3,18 @@ package com.thomaz.ambiduos.to;
 import java.io.Serializable;
 
 /**
- * Created by thomaz on 30/09/16.
+ * Created by thomaz on 16/10/16.
  */
 
-public class TripPackage implements Serializable, IBookers {
+public class Projetc implements Serializable, IAdapter {
 
     private int id;
     private String name;
-    private String sub;
-    private float value;
+    private String endereco;
 
-    public TripPackage(String name, String sub, float value) {
+    public Projetc(String name, String endereco) {
         this.name = name;
-        this.sub = sub;
-        this.value = value;
+        this.endereco = endereco;
     }
 
     @Override
@@ -31,12 +29,12 @@ public class TripPackage implements Serializable, IBookers {
 
     @Override
     public String getSubTitle() {
-        return sub;
+        return endereco;
     }
 
     @Override
     public float getValue() {
-        return value;
+        return 0;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class BookingInn extends Booking implements Serializable {
 
-    public BookingInn(int id, User usuario, Inn bookers) {
-        super(id, usuario, bookers);
+    public BookingInn(int id, Inn bookers) {
+        super(id, bookers);
     }
 }

@@ -9,15 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
-import com.thomaz.ambiduos.adapter.TripPackageInnAdapter;
-import com.thomaz.ambiduos.support.RecyclerItemClickListener;
-import com.thomaz.ambiduos.to.TripPackage;
 
 import org.androidannotations.annotations.EFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by thomaz on 04/10/16.
@@ -37,20 +30,20 @@ public class TripPackageFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        List<TripPackage> tripPackages = new ArrayList<>();
+//        List<TripPackage> tripPackages = new ArrayList<>();
 
         for (float i = 0; i < 100; i++) {
-            tripPackages.add(new TripPackage("Rj", "Brazil", i));
+//            tripPackages.add(new TripPackage("Rj", "Brazil", i));
         }
 
-        rvList.setAdapter(new TripPackageInnAdapter<>(tripPackages, R.layout.line_trip_package));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                SimpleViewActivity_.intent(getActivity()).start();
-            }
-        }));
+//        rvList.setAdapter(new TripPackageInnAdapter<>(tripPackages, R.layout.line_trip_package));
+//        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
+//                new RecyclerItemClickListener.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//                SimpleViewActivity_.intent(getActivity()).start();
+//            }
+//        }));
         return v;
     }
 

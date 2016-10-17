@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_solicitacao"
+            android:title="Solicitações de caçamba" />
+        <item
+            android:id="@+id/nav_locacao"
+            android:title="Histórico de locações" />
+        <item
+            android:id="@+id/nav_cacamba"
+            android:title="Controlar caçambas" />
+    </group>
+    <item android:title="Outras opções">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_minha_conta"
+                    android:title="Minha conta" />
+                <item
+                    android:id="@+id/nav_sair"
+                    android:title="Sair" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

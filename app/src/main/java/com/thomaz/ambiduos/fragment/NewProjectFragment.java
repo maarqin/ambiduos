@@ -32,7 +32,7 @@ public class NewProjectFragment extends Fragment {
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-        private static int NUM_ITEMS = 4;
+        private static int NUM_ITEMS = 3;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -54,8 +54,6 @@ public class NewProjectFragment extends Fragment {
                     return new SearchTripPackageFragment();
                 case 2:
                     return new SearchTripPackageFragment();
-                case 3:
-                    return new SearchTripPackageFragment();
                 default:
                     return null;
             }
@@ -63,7 +61,7 @@ public class NewProjectFragment extends Fragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            String[] titles = {"Materiais", "Resíduos", "Caçamba", "Parceiros"};
+            String[] titles = {"Materiais", "Resíduos", "Caçamba"};
 
             return titles[position];
         }

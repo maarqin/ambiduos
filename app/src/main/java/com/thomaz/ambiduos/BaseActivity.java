@@ -20,12 +20,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(res);
 
+        toolbar = ((Toolbar) findViewById(R.id.toolbar));
+        setSupportActionBar(toolbar);
+
         if( backable ) {
             showBackButton();
         }
 
-        toolbar = ((Toolbar) findViewById(R.id.toolbar));
-        setSupportActionBar(toolbar);
     }
 
     /**

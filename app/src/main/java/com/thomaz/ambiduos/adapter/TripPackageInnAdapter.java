@@ -10,16 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.to.IBookers;
+import com.thomaz.ambiduos.to.IAdapter;
 
 import java.util.List;
-
 
 /**
  * Created by thomaz on 04/10/16.
  */
-
-public class TripPackageInnAdapter<TPI extends IBookers> extends BaseAdapter<TPI, TripPackageInnAdapter.ViewHolder> {
+public class TripPackageInnAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, TripPackageInnAdapter.ViewHolder> {
 
     public TripPackageInnAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
         super(tpis, line);

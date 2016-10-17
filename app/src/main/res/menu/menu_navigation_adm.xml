@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_obra"
+            android:title="Controlar obras" />
+        <item
+            android:id="@+id/nav_controlar_despejos"
+            android:title="Controlar despejos" />
+        <item
+            android:id="@+id/nav_transporte"
+            android:title="Controlar transporte" />
+        <item
+            android:id="@+id/nav_mestre_de_obra"
+            android:title="Controlar mestre de obra" />
+        <item
+            android:id="@+id/nav_solicitacao"
+            android:title="Solicitações de caçamba" />
+    </group>
+    <item android:title="Outras opções">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_minha_conta"
+                    android:title="Minha conta" />
+                <item
+                    android:id="@+id/nav_sair"
+                    android:title="Sair" />
+            </group>
+        </menu>
+    </item>
+</menu>

@@ -8,12 +8,10 @@ import java.io.Serializable;
 public abstract class Booking implements Serializable {
 
     private int id;
-    private User usuario;
-    private IBookers bookers;
+    private IAdapter bookers;
 
-    public Booking(int id, User usuario, IBookers bookers) {
+    public Booking(int id, IAdapter bookers) {
         this.id = id;
-        this.usuario = usuario;
         this.bookers = bookers;
     }
 
@@ -21,11 +19,7 @@ public abstract class Booking implements Serializable {
         return id;
     }
 
-    public User getUsuario() {
-        return usuario;
-    }
-
-    public IBookers getBookers() {
+    public IAdapter getBookers() {
         return bookers;
     }
 }

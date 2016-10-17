@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
@@ -14,17 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.thomaz.ambiduos.fragment.InnFragment_;
-import com.thomaz.ambiduos.fragment.NewProjectFragment;
 import com.thomaz.ambiduos.fragment.TripPackageFragment_;
-
-import org.androidannotations.annotations.EActivity;
 
 /**
  * Created by thomaz on 03/10/16.
  */
-@EActivity
-public class MainActivity extends BaseActivity {
+public abstract class MainActivity extends BaseActivity {
 
     protected DrawerLayout mDrawer;
     protected NavigationView nvDrawer;
@@ -38,6 +32,8 @@ public class MainActivity extends BaseActivity {
 
         nvDrawer = ((NavigationView) findViewById(R.id.nvView));
         mDrawer = ((DrawerLayout) findViewById(R.id.drawer_layout));
+
+        nvDrawer.inflateMenu(R.menu.menu_navigation_adm);
 
         setupDrawerContent(nvDrawer);
         nvDrawer.setItemIconTintList(null);
@@ -70,29 +66,7 @@ public class MainActivity extends BaseActivity {
                 });
     }
 
-    /**
-     * @param menuItem MenuItem
-     */
-    public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the fragment to show based on nav item clicked
-        Fragment fragment;
-        switch(menuItem.getItemId()) {
-            case R.id.nav_hotel :
-                fragment = new InnFragment_();
-                break;
-            case R.id.nav_buscar :
-                fragment = new NewProjectFragment();
-                break;
-            default:
-                fragment = new TripPackageFragment_();
-        }
-        setNewFragment(fragment, menuItem.getTitle());
-
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Close the navigation drawer
-        mDrawer.closeDrawers();
-    }
+    public abstract void selectDrawerItem(MenuItem menuItem);
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,7 +79,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_activity_main, menu);
+        inflater.inflate(R.menu.content_toolbar, menu);
         return true;
     }
 
@@ -120,7 +94,8 @@ public class MainActivity extends BaseActivity {
      * @return ActionBarDrawerToggle
      */
     private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,
+                R.string.drawer_close);
     }
 
     @Override

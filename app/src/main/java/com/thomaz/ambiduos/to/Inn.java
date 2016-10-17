@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by thomaz on 30/09/16.
  */
-public class Inn implements Serializable, IBookers {
+public class Inn implements Serializable, IAdapter {
 
     private int id;
     private String name;

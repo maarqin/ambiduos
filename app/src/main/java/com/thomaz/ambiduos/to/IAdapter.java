@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by thomaz on 30/09/16.
  */
-public interface IBookers extends Serializable {
+public interface IAdapter extends Serializable {
 
     /**
      * @return int

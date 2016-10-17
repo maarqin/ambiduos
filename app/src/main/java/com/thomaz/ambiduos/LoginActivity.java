@@ -1,48 +1,38 @@
 package com.thomaz.ambiduos;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.AsyncTask;
-
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.thomaz.ambiduos.activity.AdministradorMainActivity_;
+import com.thomaz.ambiduos.support.WSUrlProvider;
+import com.thomaz.ambiduos.to.User;
+
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.api.builder.ActivityIntentBuilder;
+import org.androidannotations.api.builder.Builder;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.Manifest.permission.READ_CONTACTS;
+import thomaz.com.br.httpproject.suport.Post;
+import thomaz.com.br.httpproject.suport.Request;
+import thomaz.com.br.httpproject.suport.ResultRequest;
 
 /**
  * A login screen that offers login via email/password.
  */
 @EActivity
 public class LoginActivity extends AppCompatActivity {
-
-    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -82,9 +72,6 @@ public class LoginActivity extends AppCompatActivity {
      * errors are presented and no actual login attempt is made.
      */
     private void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -122,8 +109,55 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            JSONObject object = new JSONObject();
+            try {
+                object.put(WSUrlProvider.Login.Entry.EMAIL, email);
+                object.put(WSUrlProvider.Login.Entry.SENHA, password);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Post post = new Post(WSUrlProvider.Login.URL);
+            post.setBody(object);
+
+            Request request = new Request(post);
+            request.setListener(new ResultRequest(LoginActivity.this, R.string.app_name, "Aguarde, enviando dados") {
+                @Override
+                public void onSuccess(JSONObject object, boolean b) throws Exception {
+                    if( !b ) return;
+
+                    JSONObject user = object.getJSONObject(WSUrlProvider.Login.Exit.USER);
+                    int tipo = user.getInt("TipoUsuario");
+
+                    User newUser = new User();
+                    newUser.setEmpresa(user.getString("Empresa"));
+                    newUser.setId(user.getInt("Id"));
+                    newUser.setNome(user.getString("Nome"));
+                    newUser.setCpf(user.getString("CPF"));
+                    newUser.setEmail(user.getString("Email"));
+                    newUser.setTelefone(user.getString("Telefone"));
+                    newUser.setEndereco(user.getString("Endereco"));
+                    newUser.setCep(user.getString("CEP"));
+                    // newUser.setEmpresaId(user.getInt("EmpresaId"));
+                    newUser.setTipo(user.getInt("TipoUsuario"));
+
+                    Class<?> a = null;
+                    switch (tipo) {
+                        case TypeUser.ADMINISTRADOR:
+                            a = AdministradorMainActivity_.class;
+                            break;
+                        case TypeUser.MESTRE_DE_OBRA:
+                            break;
+                    }
+
+                    Intent intent = new Intent(LoginActivity.this, a);
+                    intent.putExtra("USER_CURRENT", newUser);
+
+                    startActivity(intent);
+                }
+            });
+
+            request.execute();
         }
     }
 
@@ -137,49 +171,9 @@ public class LoginActivity extends AppCompatActivity {
         return password.length() > 4;
     }
 
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-
-            if (success) {
-                MainActivity_.intent(LoginActivity.this).start();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-        }
+    public class TypeUser {
+        static final int ADMINISTRADOR = 2;
+        static final int MESTRE_DE_OBRA = 1;
     }
 }
 
