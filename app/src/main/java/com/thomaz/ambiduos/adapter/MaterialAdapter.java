@@ -2,7 +2,6 @@ package com.thomaz.ambiduos.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringDef;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;

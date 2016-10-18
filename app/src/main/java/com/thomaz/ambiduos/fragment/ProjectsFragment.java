@@ -18,7 +18,9 @@ import com.thomaz.ambiduos.to.Projetc;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.*;
+import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
+import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;
+import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
 
 /**
  * Created by thomaz on 15/10/16.

@@ -1,7 +1,6 @@
 package com.thomaz.ambiduos;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -19,8 +18,6 @@ import com.thomaz.ambiduos.support.WSUrlProvider;
 import com.thomaz.ambiduos.to.User;
 
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.api.builder.ActivityIntentBuilder;
-import org.androidannotations.api.builder.Builder;
 import org.json.JSONException;
 import org.json.JSONObject;
 

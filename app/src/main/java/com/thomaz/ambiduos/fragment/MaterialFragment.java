@@ -9,20 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
 import com.thomaz.ambiduos.adapter.MaterialAdapter;
-import com.thomaz.ambiduos.adapter.ProjectAdapter;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.to.Material;
-import com.thomaz.ambiduos.to.Projetc;
 import com.thomaz.ambiduos.to.UnidadeMedida;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
 
 /**
  * A simple {@link Fragment} subclass.
