@@ -15,9 +15,9 @@ import java.util.List;
  * Created by thomaz on 16/10/16.
  */
 
-public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, ProjectAdapter.ViewHolder> {
+public class CacambaAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, CacambaAdapter.ViewHolder> {
 
-    public ProjectAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
+    public CacambaAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
         super(tpis, line);
     }
 
@@ -26,7 +26,8 @@ public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, Proj
         TPI tpi = tList.get(position);
 
         holder.nome.setText(tpi.getName());
-        holder.endereco.setText(tpi.getSubTitle());
+        holder.classe.setText(tpi.getIAdapter().getName());
+        holder.total.setText(tpi.getValue() + " resíduos");
     }
 
     @Override
@@ -37,13 +38,15 @@ public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, Proj
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView nome;
-        private TextView endereco;
+        private TextView classe;
+        private TextView total;
 
         private ViewHolder(View v) {
             super(v);
 
-            nome = ((TextView) v.findViewById(R.id.tv_name_project));
-            endereco = ((TextView) v.findViewById(R.id.tv_address_project));
+            nome = ((TextView) v.findViewById(R.id.tv_nome_cacamba));
+            classe = ((TextView) v.findViewById(R.id.tv_classe_cacamba));
+            total = ((TextView) v.findViewById(R.id.tv_total_itens_cacamba));
         }
     }
 }

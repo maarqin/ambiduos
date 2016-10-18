@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    >
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_simple_background"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/tv_nome_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="21441"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_classe_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Classe a"
+            android:textAllCaps="true"
+            />
+        <TextView
+            android:id="@+id/tv_total_itens_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="10 resíduos"
+            android:layout_marginTop="20dp"
+            android:textAllCaps="true"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

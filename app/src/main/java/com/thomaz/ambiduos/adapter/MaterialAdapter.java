@@ -2,6 +2,7 @@ package com.thomaz.ambiduos.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringDef;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -15,9 +16,9 @@ import java.util.List;
  * Created by thomaz on 16/10/16.
  */
 
-public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, ProjectAdapter.ViewHolder> {
+public class MaterialAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, MaterialAdapter.ViewHolder> {
 
-    public ProjectAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
+    public MaterialAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
         super(tpis, line);
     }
 
@@ -25,8 +26,8 @@ public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, Proj
     public void onBindViewHolder(ViewHolder holder, int position) {
         TPI tpi = tList.get(position);
 
-        holder.nome.setText(tpi.getName());
-        holder.endereco.setText(tpi.getSubTitle());
+        holder.material.setText(tpi.getName());
+        holder.un.setText(tpi.getValue() + " " + tpi.getIAdapter().getName());
     }
 
     @Override
@@ -36,14 +37,14 @@ public class ProjectAdapter <TPI extends IAdapter> extends BaseAdapter<TPI, Proj
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nome;
-        private TextView endereco;
+        private TextView material;
+        private TextView un;
 
         private ViewHolder(View v) {
             super(v);
 
-            nome = ((TextView) v.findViewById(R.id.tv_name_project));
-            endereco = ((TextView) v.findViewById(R.id.tv_address_project));
+            material = ((TextView) v.findViewById(R.id.tv_material_nome));
+            un = ((TextView) v.findViewById(R.id.tv_un_material));
         }
     }
 }

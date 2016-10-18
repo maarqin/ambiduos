@@ -1,6 +1,5 @@
 package com.thomaz.ambiduos.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,22 +9,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
-import com.thomaz.ambiduos.adapter.ProjectAdapter;
+import com.thomaz.ambiduos.adapter.CacambaAdapter;
+import com.thomaz.ambiduos.adapter.MaterialAdapter;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
-import com.thomaz.ambiduos.to.Projetc;
+import com.thomaz.ambiduos.to.Cacamba;
+import com.thomaz.ambiduos.to.ClasseResiduo;
+import com.thomaz.ambiduos.to.Material;
+import com.thomaz.ambiduos.to.UnidadeMedida;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.*;
-
 /**
- * Created by thomaz on 15/10/16.
+ * A simple {@link Fragment} subclass.
  */
+public class CacambaFragment extends Fragment {
 
-public class ProjectsFragment extends Fragment {
-
+    // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,26 +38,22 @@ public class ProjectsFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        final List<Projetc> projetcs = new ArrayList<>();
+        final List<Cacamba> materials = new ArrayList<>();
 
         for (float i = 0; i < 10; i++) {
-            projetcs.add(new Projetc("Projeto novo brasil", "Rua Niteroi, 48"));
+            materials.add(new Cacamba("21441", new ClasseResiduo("Classe X"), 10));
         }
 
-        rvList.setAdapter(new ProjectAdapter<>(projetcs, R.layout.line_project));
+        rvList.setAdapter(new CacambaAdapter<>(materials, R.layout.line_cacamba));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Projetc projetc = projetcs.get(position);
 
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, projetc);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
                     }
                 }));
+
         return v;
     }
+
 }

@@ -1,12 +1,13 @@
 package com.thomaz.ambiduos.activity;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.thomaz.ambiduos.MainActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.fragment.ProjectsFragment;
-import com.thomaz.ambiduos.fragment.TripPackageFragment;
 
 import org.androidannotations.annotations.EActivity;
 
@@ -15,6 +16,13 @@ import org.androidannotations.annotations.EActivity;
  */
 @EActivity
 public class AdministradorMainActivity extends MainActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setNewFragment(new ProjectsFragment(), "Controlar obras");
+    }
 
     @Override
     public void selectDrawerItem(MenuItem menuItem) {
@@ -32,8 +40,6 @@ public class AdministradorMainActivity extends MainActivity {
                 break;
             case R.id.nav_solicitacao :
                 break;
-            default:
-                fragment = new ProjectsFragment();
         }
         setNewFragment(fragment, menuItem.getTitle());
 

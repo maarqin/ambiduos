@@ -3,18 +3,20 @@ package com.thomaz.ambiduos.to;
 import java.io.Serializable;
 
 /**
- * Created by thomaz on 16/10/16.
+ * Created by thomaz on 18/10/16.
  */
 
-public class Projetc implements Serializable, IAdapter {
+public class Cacamba implements Serializable, IAdapter {
 
     private int id;
     private String name;
-    private String endereco;
+    private ClasseResiduo classeResiduo;
+    private float value;
 
-    public Projetc(String name, String endereco) {
+    public Cacamba(String name, ClasseResiduo classeResiduo, float value) {
         this.name = name;
-        this.endereco = endereco;
+        this.classeResiduo = classeResiduo;
+        this.value = value;
     }
 
     @Override
@@ -29,12 +31,12 @@ public class Projetc implements Serializable, IAdapter {
 
     @Override
     public String getSubTitle() {
-        return endereco;
+        return null;
     }
 
     @Override
     public float getValue() {
-        return 0;
+        return value;
     }
 
     @Override
@@ -44,6 +46,6 @@ public class Projetc implements Serializable, IAdapter {
 
     @Override
     public IAdapter getIAdapter() {
-        return null;
+        return classeResiduo;
     }
 }

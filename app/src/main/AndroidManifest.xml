@@ -24,7 +24,7 @@
             android:name=".activity.LocadorMainActivity_"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ProjectsActivity_"
+            android:name=".SimpleViewActivity_"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".LoginActivity_"

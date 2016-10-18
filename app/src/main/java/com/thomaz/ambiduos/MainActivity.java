@@ -13,8 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.thomaz.ambiduos.fragment.TripPackageFragment_;
-
 /**
  * Created by thomaz on 03/10/16.
  */
@@ -44,7 +42,6 @@ public abstract class MainActivity extends BaseActivity {
 
         mDrawer.addDrawerListener(drawerToggle);
 
-        setNewFragment(new TripPackageFragment_(), "Destinos");
         nvDrawer.getMenu().performIdentifierAction(R.id.nav_destino, 0);
 
         View headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);

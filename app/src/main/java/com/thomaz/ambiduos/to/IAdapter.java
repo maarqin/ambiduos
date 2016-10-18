@@ -32,4 +32,6 @@ public interface IAdapter extends Serializable {
      */
     String getDescription();
 
+    IAdapter getIAdapter();
+
 }

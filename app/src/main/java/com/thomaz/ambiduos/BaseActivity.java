@@ -26,7 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         if( backable ) {
             showBackButton();
         }
-
     }
 
     /**

@@ -15,7 +15,7 @@ import com.thomaz.ambiduos.R;
 /**
  * Created by thomaz on 05/10/16.
  */
-public class NewProjectFragment extends Fragment {
+public class ProjectFragment extends Fragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override
@@ -32,9 +32,10 @@ public class NewProjectFragment extends Fragment {
     }
 
     public static class MyPagerAdapter extends FragmentPagerAdapter {
+
         private static int NUM_ITEMS = 3;
 
-        public MyPagerAdapter(FragmentManager fragmentManager) {
+        MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
         }
 
@@ -49,11 +50,11 @@ public class NewProjectFragment extends Fragment {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return new SearchInnFragment();
+                    return new MaterialFragment();
                 case 1:
-                    return new SearchTripPackageFragment();
+                    return new ResiduoFragment();
                 case 2:
-                    return new SearchTripPackageFragment();
+                    return new CacambaFragment();
                 default:
                     return null;
             }

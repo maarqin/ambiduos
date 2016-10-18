@@ -3,21 +3,23 @@ package com.thomaz.ambiduos.to;
 import java.io.Serializable;
 
 /**
- * Created by thomaz on 30/09/16.
+ * Created by thomaz on 18/10/16.
  */
-public class Inn implements Serializable, IAdapter {
+
+public class Material implements Serializable, IAdapter {
 
     private int id;
     private String name;
-    private String sub;
+    private UnidadeMedida un;
     private float value;
 
-    public Inn(String name, String sub, float value) {
+    public Material(String name, UnidadeMedida un, float value) {
         this.name = name;
-        this.sub = sub;
+        this.un = un;
         this.value = value;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -29,7 +31,7 @@ public class Inn implements Serializable, IAdapter {
 
     @Override
     public String getSubTitle() {
-        return sub;
+        return null;
     }
 
     @Override
@@ -42,4 +44,8 @@ public class Inn implements Serializable, IAdapter {
         return null;
     }
 
+    @Override
+    public IAdapter getIAdapter() {
+        return un;
+    }
 }
