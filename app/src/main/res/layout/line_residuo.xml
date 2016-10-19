@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    >
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#b40000"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_classe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Classe"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_material_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tijolos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/tv_quantidade_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="30un"
+            android:textAllCaps="true"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/tv_id_cacamba"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="41127"
+            android:textAllCaps="true"
+            android:gravity="center|right"
+            />
+
+
+    </LinearLayout>
+
+</LinearLayout>

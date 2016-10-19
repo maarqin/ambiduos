@@ -16,9 +16,10 @@ import java.util.List;
  * Created by thomaz on 16/10/16.
  */
 
-public class CacambaAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, CacambaAdapter.ViewHolder> {
+public class ResiduoAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, ResiduoAdapter.ViewHolder> {
 
-    public CacambaAdapter(@NonNull List<TPI> tpis, @LayoutRes int line, RecyclerView rv, Activity a) {
+
+    public ResiduoAdapter(@NonNull List<TPI> tpis, @LayoutRes int line, RecyclerView rv, Activity a) {
         super(tpis, line, rv, a);
     }
 
@@ -26,9 +27,10 @@ public class CacambaAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, Cacam
     public void onBindViewHolder(ViewHolder holder, int position) {
         TPI tpi = tList.get(position);
 
-        holder.nome.setText(tpi.getName());
-        holder.classe.setText(tpi.getIAdapter().getName());
-        holder.total.setText(tpi.getValue() + " resíduos");
+        holder.classe.setText(tpi.getDescription());
+        holder.material.setText(tpi.getName());
+        holder.qtde.setText(tpi.getValue() + " UN");
+        holder.id.setText(tpi.getIAdapter().getName());
     }
 
     @Override
@@ -38,16 +40,18 @@ public class CacambaAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, Cacam
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nome;
         private TextView classe;
-        private TextView total;
+        private TextView material;
+        private TextView qtde;
+        private TextView id;
 
         private ViewHolder(View v) {
             super(v);
 
-            nome = ((TextView) v.findViewById(R.id.tv_nome_cacamba));
-            classe = ((TextView) v.findViewById(R.id.tv_classe_cacamba));
-            total = ((TextView) v.findViewById(R.id.tv_total_itens_cacamba));
+            classe = ((TextView) v.findViewById(R.id.tv_classe));
+            material = ((TextView) v.findViewById(R.id.tv_material_cacamba));
+            qtde = ((TextView) v.findViewById(R.id.tv_quantidade_cacamba));
+            id = ((TextView) v.findViewById(R.id.tv_id_cacamba));
         }
     }
 }

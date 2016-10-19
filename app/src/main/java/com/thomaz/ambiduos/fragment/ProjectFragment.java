@@ -15,7 +15,7 @@ import com.thomaz.ambiduos.R;
 /**
  * Created by thomaz on 05/10/16.
  */
-public class ProjectFragment extends Fragment {
+public class ProjectFragment extends CustomFragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override

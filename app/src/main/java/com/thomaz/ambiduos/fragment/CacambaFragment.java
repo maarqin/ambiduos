@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CacambaFragment extends Fragment {
+public class CacambaFragment extends CustomFragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override
@@ -41,7 +41,7 @@ public class CacambaFragment extends Fragment {
             materials.add(new Cacamba("21441", new ClasseResiduo("Classe X"), 10));
         }
 
-        rvList.setAdapter(new CacambaAdapter<>(materials, R.layout.line_cacamba));
+        rvList.setAdapter(new CacambaAdapter<>(materials, R.layout.line_cacamba, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override

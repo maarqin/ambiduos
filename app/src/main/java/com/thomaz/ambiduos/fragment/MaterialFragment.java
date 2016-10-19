@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MaterialFragment extends Fragment {
+public class MaterialFragment extends CustomFragment {
 
     // Inflate the view for the fragment based on layout XML
     @Override
@@ -41,7 +41,7 @@ public class MaterialFragment extends Fragment {
             materials.add(new Material("Tijolo", new UnidadeMedida("UN"), 100));
         }
 
-        rvList.setAdapter(new MaterialAdapter<>(materials, R.layout.line_material));
+        rvList.setAdapter(new MaterialAdapter<>(materials, R.layout.line_material, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override

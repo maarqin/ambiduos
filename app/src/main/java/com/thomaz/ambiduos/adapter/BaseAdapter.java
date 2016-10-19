@@ -1,11 +1,18 @@
 package com.thomaz.ambiduos.adapter;
 
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.dgreenhalgh.android.simpleitemdecoration.linear.DividerItemDecoration;
+import com.thomaz.ambiduos.R;
+import com.thomaz.ambiduos.to.IAdapter;
 
 import java.util.List;
 
@@ -17,9 +24,12 @@ public abstract class BaseAdapter<T, VH extends RecyclerView.ViewHolder> extends
     protected List<T> tList;
     private int line;
 
-    public BaseAdapter(@NonNull List<T> tList, @LayoutRes int line) {
+    public BaseAdapter(@NonNull List<T> tList, @LayoutRes int line, RecyclerView rv, Activity a) {
         this.tList = tList;
         this.line = line;
+
+        Drawable dividerDrawable = ContextCompat.getDrawable(a, R.drawable.divider_line);
+        rv.addItemDecoration(new DividerItemDecoration(dividerDrawable));
     }
 
     @Override

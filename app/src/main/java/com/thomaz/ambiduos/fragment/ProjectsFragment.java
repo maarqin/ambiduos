@@ -26,7 +26,7 @@ import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
  * Created by thomaz on 15/10/16.
  */
 
-public class ProjectsFragment extends Fragment {
+public class ProjectsFragment extends CustomFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +46,7 @@ public class ProjectsFragment extends Fragment {
             projetcs.add(new Projetc("Projeto novo brasil", "Rua Niteroi, 48"));
         }
 
-        rvList.setAdapter(new ProjectAdapter<>(projetcs, R.layout.line_project));
+        rvList.setAdapter(new ProjectAdapter<>(projetcs, R.layout.line_project, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override

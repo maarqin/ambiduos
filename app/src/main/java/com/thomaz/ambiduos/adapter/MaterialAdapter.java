@@ -1,5 +1,6 @@
 package com.thomaz.ambiduos.adapter;
 
+import android.app.Activity;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -17,8 +18,9 @@ import java.util.List;
 
 public class MaterialAdapter<TPI extends IAdapter> extends BaseAdapter<TPI, MaterialAdapter.ViewHolder> {
 
-    public MaterialAdapter(@NonNull List<TPI> tpis, @LayoutRes int line) {
-        super(tpis, line);
+
+    public MaterialAdapter(@NonNull List<TPI> tpis, @LayoutRes int line, RecyclerView rv, Activity a) {
+        super(tpis, line, rv, a);
     }
 
     @Override
