@@ -1,4 +1,4 @@
-package com.thomaz.ambiduos.fragment;
+package com.thomaz.ambiduos.fragment.Engenheiro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.CacambaAdapter;
+import com.thomaz.ambiduos.fragment.CustomFragment;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.to.Cacamba;
 import com.thomaz.ambiduos.to.ClasseResiduo;

@@ -1,6 +1,5 @@
-package com.thomaz.ambiduos.fragment;
+package com.thomaz.ambiduos.fragment.Engenheiro;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,24 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
-import com.thomaz.ambiduos.adapter.ProjectAdapter;
+import com.thomaz.ambiduos.adapter.MaterialAdapter;
+import com.thomaz.ambiduos.fragment.CustomFragment;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
-import com.thomaz.ambiduos.to.Projetc;
+import com.thomaz.ambiduos.to.Material;
+import com.thomaz.ambiduos.to.UnidadeMedida;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
-
 /**
- * Created by thomaz on 15/10/16.
+ * A simple {@link Fragment} subclass.
  */
+public class MaterialFragment extends CustomFragment {
 
-public class ProjectsFragment extends CustomFragment {
-
+    // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,26 +36,25 @@ public class ProjectsFragment extends CustomFragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        final List<Projetc> projetcs = new ArrayList<>();
+        final List<Material> materials = new ArrayList<>();
 
         for (float i = 0; i < 10; i++) {
-            projetcs.add(new Projetc("Projeto novo brasil", "Rua Niteroi, 48"));
+            materials.add(new Material("Tijolo", new UnidadeMedida("UN"), 100));
         }
 
-        rvList.setAdapter(new ProjectAdapter<>(projetcs, R.layout.line_project, rvList, getActivity()));
+        rvList.setAdapter(new MaterialAdapter<>(materials, R.layout.line_material, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Projetc projetc = projetcs.get(position);
 
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, projetc);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
                     }
                 }));
+
         return v;
     }
+
+
+
+
 }

@@ -31,7 +31,7 @@ public abstract class MainActivity extends BaseActivity {
         nvDrawer = ((NavigationView) findViewById(R.id.nvView));
         mDrawer = ((DrawerLayout) findViewById(R.id.drawer_layout));
 
-        nvDrawer.inflateMenu(R.menu.menu_navigation_adm);
+        nvDrawer.inflateMenu(R.menu.menu_navigation_engenheiro);
 
         setupDrawerContent(nvDrawer);
         nvDrawer.setItemIconTintList(null);
@@ -42,7 +42,7 @@ public abstract class MainActivity extends BaseActivity {
 
         mDrawer.addDrawerListener(drawerToggle);
 
-        nvDrawer.getMenu().performIdentifierAction(R.id.nav_destino, 0);
+        // nvDrawer.getMenu().performIdentifierAction(R.id.nav_destino, 0);
 
         View headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);
         ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));

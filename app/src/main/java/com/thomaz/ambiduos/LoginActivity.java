@@ -121,7 +121,16 @@ public class LoginActivity extends AppCompatActivity {
             request.setListener(new ResultRequest(LoginActivity.this, R.string.app_name, "Aguarde, enviando dados") {
                 @Override
                 public void onSuccess(JSONObject object, boolean b) throws Exception {
-                    if( !b ) return;
+                    if( !b ) {
+
+                        Class<?> a = AdministradorMainActivity_.class;
+
+                        Intent intent = new Intent(LoginActivity.this, a);
+
+                        startActivity(intent);
+
+                        return;
+                    }
 
                     JSONObject user = object.getJSONObject(WSUrlProvider.Login.Exit.USER);
                     int tipo = user.getInt("TipoUsuario");

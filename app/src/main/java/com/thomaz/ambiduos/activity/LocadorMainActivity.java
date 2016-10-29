@@ -19,13 +19,13 @@ public class LocadorMainActivity extends MainActivity {
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
-        switch(menuItem.getItemId()) {
-            case R.id.nav_hotel :
-                break;
-            case R.id.nav_buscar :
-                break;
-            default:
-        }
+//        switch(menuItem.getItemId()) {
+//            case R.id.nav_hotel :
+//                break;
+//            case R.id.nav_buscar :
+//                break;
+//            default:
+//        }
         setNewFragment(fragment, menuItem.getTitle());
 
         // Highlight the selected item has been done by NavigationView

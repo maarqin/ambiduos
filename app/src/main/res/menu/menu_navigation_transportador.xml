@@ -3,8 +3,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_sucControlarDespachoResiduoCooperativa"
-            android:title="Controlar despacho resíduos" />
+            android:id="@+id/nav_sucControlarDocumentos"
+            android:title="Controlar documentos" />
+        <item
+            android:id="@+id/nav_sucControlarSolicitacaoTransporte"
+            android:title="Solicitar transporte" />
     </group>
     <item android:title="Outras opções">
         <menu>

@@ -1,4 +1,4 @@
-package com.thomaz.ambiduos.fragment;
+package com.thomaz.ambiduos.fragment.Engenheiro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.thomaz.ambiduos.R;
+import com.thomaz.ambiduos.fragment.CustomFragment;
 
 /**
  * Created by thomaz on 05/10/16.
