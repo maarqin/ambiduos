@@ -27,4 +27,8 @@ public class ConsultarLocacoesFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_consultar_locacoes, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Locações";
+    }
 }

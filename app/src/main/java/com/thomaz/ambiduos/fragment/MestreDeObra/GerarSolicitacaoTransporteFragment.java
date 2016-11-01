@@ -27,4 +27,8 @@ public class GerarSolicitacaoTransporteFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_gerar_solicitacao_transporte, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Solicitação de transporte";
+    }
 }

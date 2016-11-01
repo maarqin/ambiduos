@@ -9,7 +9,7 @@
             android:id="@+id/nav_sucControlarSolicitacaoTransporte"
             android:title="Solicitar transporte" />
         <item
-            android:id="@+id/nav_sucControlarObra"
+                android:id="@+id/nav_sucControlarObra"
             android:title="Controlar obras" />
         <item
             android:id="@+id/nav_sucControlarMestreDeObra"

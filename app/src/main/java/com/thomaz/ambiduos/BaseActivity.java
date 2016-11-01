@@ -31,9 +31,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * @param fragment Fragment
      */
-    protected void setNewFragment(Fragment fragment, CharSequence title) {
+    protected void setNewFragment(Fragment fragment) {
         // Set action bar title
-        setTitle(title);
+        setTitle(fragment.toString());
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();

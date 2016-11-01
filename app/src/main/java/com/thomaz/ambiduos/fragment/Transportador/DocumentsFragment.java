@@ -27,4 +27,9 @@ public class DocumentsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_documents, container, false);
     }
 
+
+    @Override
+    public String toString() {
+        return "Documentos";
+    }
 }

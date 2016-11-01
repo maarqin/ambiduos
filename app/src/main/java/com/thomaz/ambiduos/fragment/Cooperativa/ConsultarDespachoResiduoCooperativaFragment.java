@@ -27,4 +27,9 @@ public class ConsultarDespachoResiduoCooperativaFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_consultar_despacho_residuo_cooperativa, container, false);
     }
 
+
+    @Override
+    public String toString() {
+        return "Despacho de resíduo";
+    }
 }

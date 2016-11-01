@@ -27,4 +27,8 @@ public class ControlarMestreDeObraFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_controlar_mestre_de_obra, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Mestre de obra";
+    }
 }

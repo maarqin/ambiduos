@@ -21,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             >
 
             <ImageView
@@ -43,7 +43,6 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:text="admin@ambiduos.com.br"
                     />
 
             </android.support.design.widget.TextInputLayout>
@@ -62,8 +61,24 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:text="Ambiduos@2016" />
+                    />
 
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/type_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_type_user"
+                    android:imeActionId="@+id/login"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:focusable="false"
+                    />
             </android.support.design.widget.TextInputLayout>
 
             <Button

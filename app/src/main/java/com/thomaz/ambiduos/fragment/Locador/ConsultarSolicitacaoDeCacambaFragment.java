@@ -27,4 +27,8 @@ public class ConsultarSolicitacaoDeCacambaFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_consultar_solicitacao_de_cacamba, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Solicitações de caçamba";
+    }
 }

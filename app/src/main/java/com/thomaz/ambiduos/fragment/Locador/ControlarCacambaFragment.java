@@ -27,4 +27,8 @@ public class ControlarCacambaFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_controlar_cacamba, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Caçambas";
+    }
 }

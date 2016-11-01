@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.dgreenhalgh.android.simpleitemdecoration.linear.DividerItemDecoration;
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.to.IAdapter;
 
 import java.util.List;
 

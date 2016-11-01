@@ -1,7 +1,10 @@
 package com.thomaz.ambiduos;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.MenuRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -13,7 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.thomaz.ambiduos.activity.AdministradorMainActivity_;
 import com.thomaz.ambiduos.support.WSUrlProvider;
 import com.thomaz.ambiduos.to.User;
 
@@ -34,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private EditText type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +50,62 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
                     return true;
                 }
                 return false;
             }
         });
 
+        type = ((EditText) findViewById(R.id.type_user));
+
+        type.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final CharSequence[] items = {"Cooperativa", "Engenheiro", "Locador", "Mestre de obra", "Transportador"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        type.setText(items[i]);
+
+                        dialogInterface.dismiss();
+                    }
+                });
+                builder.show();
+            }
+        });
+
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                @MenuRes int menu;
+                switch (type.getText().toString()) {
+                    case "Cooperativa" :
+                        menu = R.menu.menu_navigation_cooperativa;
+                        break;
+                    case "Mestre de obra" :
+                        menu = R.menu.menu_navigation_mestre_de_obra;
+                        break;
+                    case "Locador" :
+                        menu = R.menu.menu_navigation_locador;
+                        break;
+                    case "Transportador" :
+                        menu = R.menu.menu_navigation_transportador;
+                        break;
+                    default:
+                        menu = R.menu.menu_navigation_engenheiro;
+                }
+                intent.putExtra("MENU", menu);
+
+                startActivity(intent);
+
+
+                // attemptLogin();
             }
         });
     }
@@ -121,16 +168,6 @@ public class LoginActivity extends AppCompatActivity {
             request.setListener(new ResultRequest(LoginActivity.this, R.string.app_name, "Aguarde, enviando dados") {
                 @Override
                 public void onSuccess(JSONObject object, boolean b) throws Exception {
-                    if( !b ) {
-
-                        Class<?> a = AdministradorMainActivity_.class;
-
-                        Intent intent = new Intent(LoginActivity.this, a);
-
-                        startActivity(intent);
-
-                        return;
-                    }
 
                     JSONObject user = object.getJSONObject(WSUrlProvider.Login.Exit.USER);
                     int tipo = user.getInt("TipoUsuario");
@@ -147,19 +184,11 @@ public class LoginActivity extends AppCompatActivity {
                     // newUser.setEmpresaId(user.getInt("EmpresaId"));
                     newUser.setTipo(user.getInt("TipoUsuario"));
 
-                    Class<?> a = null;
-                    switch (tipo) {
-                        case TypeUser.ADMINISTRADOR:
-                            a = AdministradorMainActivity_.class;
-                            break;
-                        case TypeUser.MESTRE_DE_OBRA:
-                            break;
-                    }
 
-                    Intent intent = new Intent(LoginActivity.this, a);
-                    intent.putExtra("USER_CURRENT", newUser);
+                    // Intent intent = new Intent(LoginActivity.this, a);
+                    // intent.putExtra("USER_CURRENT", newUser);
 
-                    startActivity(intent);
+                    // startActivity(intent);
                 }
             });
 

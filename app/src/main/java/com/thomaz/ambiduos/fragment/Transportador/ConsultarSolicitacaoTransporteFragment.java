@@ -27,4 +27,8 @@ public class ConsultarSolicitacaoTransporteFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_consultar_solicitacao_transporte, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Solicitação de transporte";
+    }
 }

@@ -3,13 +3,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_sucControlarSolicitacaoDeCacamba"
+            android:id="@+id/nav_sucConsultarSolicitacaoDeCacamba"
             android:title="Solicitações de caçamba" />
         <item
-            android:id="@+id/nav_sucControlarDespachoResiduos"
+            android:id="@+id/nav_sucGerarDespachoResiduos"
             android:title="Despachar resíduos" />
         <item
-            android:id="@+id/nav_sucControlarDespachoResiduoCooperativa"
+            android:id="@+id/nav_sucGerarDespachoResiduoCooperativa"
             android:title="Despachar resíduos(Cooperativa)" />
         <item
             android:id="@+id/nav_sucConsultarLocacoes"

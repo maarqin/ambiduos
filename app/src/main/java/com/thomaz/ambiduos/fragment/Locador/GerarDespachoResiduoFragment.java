@@ -27,4 +27,8 @@ public class GerarDespachoResiduoFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_gerar_despacho_residuo, container, false);
     }
 
+    @Override
+    public String toString() {
+        return "Despacho de resíduo";
+    }
 }
