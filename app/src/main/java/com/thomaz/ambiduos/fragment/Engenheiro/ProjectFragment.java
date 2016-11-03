@@ -21,7 +21,7 @@ public class ProjectFragment extends CustomFragment {
     // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_project, container, false);
 
         ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
         vpPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));

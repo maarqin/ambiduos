@@ -18,11 +18,13 @@ import com.thomaz.ambiduos.fragment.Engenheiro.ProjectsFragment;
 import com.thomaz.ambiduos.fragment.Locador.ConsultarLocacoesFragment;
 import com.thomaz.ambiduos.fragment.Locador.ConsultarSolicitacaoDeCacambaFragment;
 import com.thomaz.ambiduos.fragment.Locador.ControlarCacambaFragment;
+import com.thomaz.ambiduos.fragment.Locador.GerarDespachoResiduoCooperativaFragment;
 import com.thomaz.ambiduos.fragment.Locador.GerarDespachoResiduoFragment;
 import com.thomaz.ambiduos.fragment.MestreDeObra.GerarSolicitacaoDeCacambaFragment;
 import com.thomaz.ambiduos.fragment.MestreDeObra.GerarSolicitacaoTransporteFragment;
 import com.thomaz.ambiduos.fragment.Transportador.ConsultarSolicitacaoTransporteFragment;
 import com.thomaz.ambiduos.fragment.Transportador.DocumentsFragment;
+import com.thomaz.ambiduos.fragment.WelcomeFragment;
 
 /**
  * Created by thomaz on 03/10/16.
@@ -56,9 +58,11 @@ public class MainActivity extends BaseActivity {
 
         mDrawer.addDrawerListener(drawerToggle);
 
+        setNewFragment(new WelcomeFragment());
+
         View headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);
-        ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));
-        ivCover.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY);
+//        ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));
+//        ivCover.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY);
     }
 
     /**
@@ -100,7 +104,7 @@ public class MainActivity extends BaseActivity {
                  fragment = new GerarDespachoResiduoFragment();
                  break;
              case R.id.nav_sucGerarDespachoResiduoCooperativa :
-                 fragment = new ConsultarDespachoResiduoCooperativaFragment();
+                 fragment = new GerarDespachoResiduoCooperativaFragment();
                  break;
              case R.id.nav_sucConsultarLocacoes :
                  fragment = new ConsultarLocacoesFragment();
@@ -125,8 +129,10 @@ public class MainActivity extends BaseActivity {
                  fragment = new ConsultarSolicitacaoTransporteFragment();
                  break;
          }
+         menuItem.setChecked(false);
+         mDrawer.closeDrawers();
 
-        setNewFragment(fragment);
+         setNewFragment(fragment);
      }
 
     @Override
@@ -136,13 +142,6 @@ public class MainActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-//
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.content_toolbar, menu);
-//        return true;
-//    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

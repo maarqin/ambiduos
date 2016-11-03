@@ -1,4 +1,4 @@
-package com.thomaz.ambiduos.fragment.Locador;
+package com.thomaz.ambiduos.fragment;
 
 
 import android.os.Bundle;
@@ -12,17 +12,17 @@ import com.thomaz.ambiduos.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GerarDespachoResiduoCooperativaFragment extends Fragment {
+public class WelcomeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gerar_despacho_residuo_cooperativa, container, false);
+        return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 
     @Override
     public String toString() {
-        return "Despacho de resíduo/Cooperativa";
+        return "Início";
     }
 }

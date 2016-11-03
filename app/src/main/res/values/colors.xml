@@ -6,7 +6,7 @@
     <!--<color name="colorPrimaryDark">#6187e8</color>-->
     <color name="colorAccent">#898989</color>
     <color name="colorMonetaryList">#87d86b</color>
-    <color name="colorSeparatorList">#f4f4f4</color>
+    <color name="colorSeparatorList">#ccc</color>
     <color name="white">#fff</color>
     <color name="white_pressed">#f4f4f4</color>
 </resources>

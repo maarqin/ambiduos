@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * Created by thomaz on 30/09/16.
  */
-
 public interface IDao<T, PK> {
 
     /**

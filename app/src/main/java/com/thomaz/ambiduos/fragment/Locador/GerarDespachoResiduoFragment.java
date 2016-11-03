@@ -14,12 +14,6 @@ import com.thomaz.ambiduos.R;
  */
 public class GerarDespachoResiduoFragment extends Fragment {
 
-
-    public GerarDespachoResiduoFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -5,14 +5,15 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:orientation="vertical"
     android:gravity="bottom">
-    <ImageView
-        android:id="@+id/iv_cover_header_drawer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_fake_bg"
-        android:scaleType="centerCrop"
-        />
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_cover_header_drawer"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:src="@mipmap/ic_fake_bg"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--/>-->
     <LinearLayout
+        android:id="@+id/hold"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="7"
@@ -42,12 +43,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/str_btn_entrar"
+                android:text="Nome do usuário"
                 android:textSize="17sp"
                 android:textStyle="normal"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/background_dark"
                 />
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>

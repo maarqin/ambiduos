@@ -17,27 +17,18 @@
         android:paddingLeft="10dp"
         >
         <TextView
-            android:id="@+id/tv_nome_cacamba"
+            android:id="@+id/tv_um"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="21441"
             android:textSize="20sp"
             android:textStyle="bold"
             />
 
         <TextView
-            android:id="@+id/tv_classe_cacamba"
+            android:id="@+id/tv_dois"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Classe a"
-            android:textAllCaps="true"
-            />
-        <TextView
-            android:id="@+id/tv_total_itens_cacamba"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="10 resíduos"
-            android:layout_marginTop="20dp"
+            android:text="14 abril 2016"
             android:textAllCaps="true"
 
             />
