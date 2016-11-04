@@ -79,8 +79,6 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                     }
                 }));
         return v;
-
-
     }
 
     @Override
