@@ -1,7 +1,6 @@
 package com.thomaz.ambiduos;
 
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -25,6 +24,8 @@ import com.thomaz.ambiduos.fragment.MestreDeObra.GerarSolicitacaoTransporteFragm
 import com.thomaz.ambiduos.fragment.Transportador.ConsultarSolicitacaoTransporteFragment;
 import com.thomaz.ambiduos.fragment.Transportador.DocumentsFragment;
 import com.thomaz.ambiduos.fragment.WelcomeFragment;
+
+import java.util.Locale;
 
 /**
  * Created by thomaz on 03/10/16.
@@ -58,11 +59,17 @@ public class MainActivity extends BaseActivity {
 
         mDrawer.addDrawerListener(drawerToggle);
 
-        setNewFragment(new WelcomeFragment());
+        setNewFragment(new WelcomeFragment(), false);
 
         View headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);
 //        ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));
 //        ivCover.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+        // Language
+        String lang = Locale.getDefault().getLanguage();
+
+        System.out.println("lang = " + lang);
     }
 
     /**

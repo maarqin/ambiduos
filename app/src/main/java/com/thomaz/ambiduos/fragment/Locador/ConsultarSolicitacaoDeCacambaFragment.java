@@ -14,7 +14,7 @@ import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.SimpleViewActivity_;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
-import com.thomaz.ambiduos.to.SolicitacaoCabamba;
+import com.thomaz.ambiduos.to.SolicitacaoCacamba;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,21 +42,21 @@ public class ConsultarSolicitacaoDeCacambaFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        final List<SolicitacaoCabamba> solicitacaoCabambas = new ArrayList<>();
+        final List<SolicitacaoCacamba> solicitacaoCacambas = new ArrayList<>();
 
         for (float i = 0; i < 10; i++) {
-            solicitacaoCabambas.add(new SolicitacaoCabamba((int)i, "Obra " + (int)i, "Classe A"));
+            solicitacaoCacambas.add(new SolicitacaoCacamba((int)i, "Obra " + (int)i, "Classe A"));
         }
 
-        rvList.setAdapter(new SimpleDataAdapter<>(solicitacaoCabambas, R.layout.line_simple, rvList, getActivity()));
+        rvList.setAdapter(new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_simple, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        SolicitacaoCabamba solicitacaoCabamba = solicitacaoCabambas.get(position);
+                        SolicitacaoCacamba solicitacaoCacamba = solicitacaoCacambas.get(position);
 
                         Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, solicitacaoCabamba);
+                        intent.putExtra(EXTRA, solicitacaoCacamba);
                         intent.putExtra(KEY, PROJECT);
 
                         startActivity(intent);

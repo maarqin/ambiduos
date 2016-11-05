@@ -5,6 +5,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -31,12 +32,21 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * @param fragment Fragment
      */
-    protected void setNewFragment(Fragment fragment) {
+    public void setNewFragment(Fragment fragment) {
+        setNewFragment(fragment, true);
+    }
+
+    public void setNewFragment(Fragment fragment, boolean stackable) {
         // Set action bar title
         setTitle(fragment.toString());
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if( stackable ) fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.replace(R.id.flContent, fragment).commit();
     }
 
     private void showBackButton() {

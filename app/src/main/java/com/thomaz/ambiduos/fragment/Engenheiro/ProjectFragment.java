@@ -70,4 +70,8 @@ public class ProjectFragment extends CustomFragment {
 
     }
 
+    @Override
+    public String toString() {
+        return "Obra aberta";
+    }
 }
