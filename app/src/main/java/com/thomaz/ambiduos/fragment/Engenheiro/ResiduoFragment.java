@@ -46,7 +46,7 @@ public class ResiduoFragment extends CustomFragment {
 
         for (float i = 0; i < 10; i++) {
             residuos.add(new Residuo("Tijolos", "A", i,
-                    new Cacamba("346")));
+                    new Cacamba((int) i, "346")));
         }
 
         rvList.setAdapter(new ResiduoAdapter<>(residuos, R.layout.line_residuo, rvList, getActivity()));

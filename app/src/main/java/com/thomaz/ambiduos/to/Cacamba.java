@@ -1,19 +1,26 @@
 package com.thomaz.ambiduos.to;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 /**
  * Created by thomaz on 18/10/16.
  */
 
-public class Cacamba implements Serializable, IAdapter {
+public class Cacamba implements Serializable, IAdapter, Comparable<Cacamba> {
 
-    private int id;
+    private Integer id;
     private String name;
     private ClasseResiduo classeResiduo;
     private float value;
 
-    public Cacamba(String name) {
+    public Cacamba(Integer id) {
+        this.id = id;
+    }
+
+    public Cacamba(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -51,5 +58,10 @@ public class Cacamba implements Serializable, IAdapter {
     @Override
     public IAdapter getIAdapter() {
         return classeResiduo;
+    }
+
+    @Override
+    public int compareTo(@NonNull Cacamba cacamba) {
+        return this.id.compareTo(cacamba.id);
     }
 }

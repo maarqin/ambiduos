@@ -21,6 +21,7 @@ import com.thomaz.ambiduos.fragment.Locador.GerarDespachoResiduoCooperativaFragm
 import com.thomaz.ambiduos.fragment.Locador.GerarDespachoResiduoFragment;
 import com.thomaz.ambiduos.fragment.MestreDeObra.GerarSolicitacaoDeCacambaFragment;
 import com.thomaz.ambiduos.fragment.MestreDeObra.GerarSolicitacaoTransporteFragment;
+import com.thomaz.ambiduos.fragment.MinhaContaFragment;
 import com.thomaz.ambiduos.fragment.Transportador.ConsultarSolicitacaoTransporteFragment;
 import com.thomaz.ambiduos.fragment.Transportador.DocumentsFragment;
 import com.thomaz.ambiduos.fragment.WelcomeFragment;
@@ -80,7 +81,7 @@ public class MainActivity extends BaseActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                         selectDrawerItem(menuItem);
+                        selectDrawerItem(menuItem);
                         return true;
                     }
                 });
@@ -134,6 +135,14 @@ public class MainActivity extends BaseActivity {
                  break;
              case R.id.nav_sucConsultarSolicitacaoTransporte :
                  fragment = new ConsultarSolicitacaoTransporteFragment();
+                 break;
+
+             // Generics
+             case R.id.nav_sair :
+                 finish();
+                 break;
+             case R.id.nav_minha_conta :
+                 fragment = new MinhaContaFragment();
                  break;
          }
          menuItem.setChecked(false);

@@ -16,12 +16,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.thomaz.ambiduos.dbs.DBHelperCacamba;
+import com.thomaz.ambiduos.support.UserDefaults;
 import com.thomaz.ambiduos.support.WSUrlProvider;
+import com.thomaz.ambiduos.to.Cacamba;
 import com.thomaz.ambiduos.to.User;
 
 import org.androidannotations.annotations.EActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import thomaz.com.br.httpproject.suport.Post;
 import thomaz.com.br.httpproject.suport.Request;
@@ -33,6 +39,8 @@ import thomaz.com.br.httpproject.suport.ResultRequest;
 @EActivity
 public class LoginActivity extends AppCompatActivity {
 
+    static final String OPENED = "OPENED";
+
     // UI references.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
@@ -42,6 +50,32 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        UserDefaults defaults = new UserDefaults(this);
+
+        // Se nao tem, cria as tabelas do sistema
+        if( !defaults.hasKey(OPENED) ) {
+            defaults.write(OPENED, true);
+
+            DBHelperCacamba dbHelperCacamba = new DBHelperCacamba(this);
+
+            dbHelperCacamba.dropTable();
+
+            ArrayList<HashMap<String, String>> cs = new ArrayList<>();
+            for (float i = 0; i < 10; i++) {
+                Cacamba c = new Cacamba((int) i, "#A" + (int)i);
+
+                HashMap<String, String> toNew = new HashMap<>();
+                toNew.put(DBHelperCacamba.ID, c.getId() + "");
+                toNew.put(DBHelperCacamba.NOME, c.getName());
+
+                cs.add(toNew);
+            }
+
+
+            dbHelperCacamba.store(cs);
+        }
+
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 

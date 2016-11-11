@@ -4,10 +4,13 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.thomaz.ambiduos.fragment.Locador.ConsultarLocacoesFragment;
+import com.thomaz.ambiduos.to.Cacamba;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -22,5 +25,14 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.thomaz.ambiduos", appContext.getPackageName());
+    }
+
+    @Test
+    public void buscarCacamba() throws Exception {
+        Context appContext = InstrumentationRegistry.getTargetContext();
+
+        Cacamba encontrada = ConsultarLocacoesFragment.buscarCacamba(6, appContext);
+
+        assertEquals(5, encontrada.getId());
     }
 }

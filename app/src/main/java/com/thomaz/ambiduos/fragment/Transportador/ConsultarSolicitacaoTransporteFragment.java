@@ -14,12 +14,6 @@ import com.thomaz.ambiduos.R;
  */
 public class ConsultarSolicitacaoTransporteFragment extends Fragment {
 
-
-    public ConsultarSolicitacaoTransporteFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -1,6 +1,7 @@
 package com.thomaz.ambiduos.fragment.Locador;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,16 +16,22 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.SimpleViewActivity_;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
+import com.thomaz.ambiduos.dbs.DBHelperCacamba;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
+import com.thomaz.ambiduos.support.UserDialog;
+import com.thomaz.ambiduos.to.Cacamba;
 import com.thomaz.ambiduos.to.Locacao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
@@ -49,6 +56,8 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
+        System.out.println("buscarCacamba(5, getContext()) = " + buscarCacamba(5, getContext()).getId());
 
 
         RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
@@ -90,36 +99,67 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng p1 = new LatLng(-23.3044631, -51.1695957);
+        LatLng[] ps = {
+                new LatLng(-23.302870, -51.187125), new LatLng(-23.312377, -51.180093),
+                new LatLng(-23.310685, -51.166755), new LatLng(-23.305368, -51.162378),
+                new LatLng(-23.303340, -51.158600), new LatLng(-23.296490, -51.155763),
+                new LatLng(-23.293021, -51.161149), new LatLng(-23.291021, -51.153714),
+                new LatLng(-23.296454, -51.147380), new LatLng(-23.3044631, -51.1695957)
+        };
 
-        LatLng p2 = new LatLng(-23.302870, -51.187125);
-        LatLng p3 = new LatLng(-23.312377, -51.180093);
-        LatLng p4 = new LatLng(-23.310685, -51.166755);
-        LatLng p5 = new LatLng(-23.305368, -51.162378);
-        LatLng p6 = new LatLng(-23.303340, -51.158600);
-        LatLng p7 = new LatLng(-23.296490, -51.155763);
-        LatLng p8 = new LatLng(-23.293021, -51.161149);
-        LatLng p9 = new LatLng(-23.291021, -51.153714);
-        LatLng p10 = new LatLng(-23.296454, -51.147380);
-        mMap.addMarker(new MarkerOptions().position(p1));
-        mMap.addMarker(new MarkerOptions().position(p2));
-        mMap.addMarker(new MarkerOptions().position(p3));
-        mMap.addMarker(new MarkerOptions().position(p4));
-        mMap.addMarker(new MarkerOptions().position(p5));
-        mMap.addMarker(new MarkerOptions().position(p6));
-        mMap.addMarker(new MarkerOptions().position(p7));
-        mMap.addMarker(new MarkerOptions().position(p8));
-        mMap.addMarker(new MarkerOptions().position(p9));
-        mMap.addMarker(new MarkerOptions().position(p10));
+        for (int i = 0; i < ps.length; i++) {
+            Marker melbourne = mMap.addMarker(
+                    new MarkerOptions()
+                            .position(ps[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_residuo_cacamba))
+                            .title("Cacamba " + i)
+            );
+
+
+        }
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(p1)      // Sets the center of the map to Mountain View
+                .target(ps[0])      // Sets the center of the map to Mountain View
                 .zoom(12)                   // Sets the zoom
                 .tilt(10)                   // Sets the tilt of the camera to 30 degrees
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker marker) {
+
+                UserDialog userDialog = new UserDialog();
+                userDialog.setTitle(marker.getTitle());
+                userDialog.setMessage("Caçamba com resíduo: Classe A \n\nDestino: Cooperativa fundão");
+
+                userDialog.show(getContext());
+
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker marker) {
+                return null;
+            }
+        });
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(p1));
     }
+
+    public static Cacamba buscarCacamba(int id, Context context) {
+        DBHelperCacamba helperCacamba = new DBHelperCacamba(context);
+
+        List<HashMap<String, String>> cHash = helperCacamba.where(
+                DBHelperCacamba.ID, DBHelperCacamba.EQUAL, String.valueOf(id)
+        ).execute();
+
+        if( cHash.size() == 0 ) return null;
+
+        HashMap<String, String> cacambaHash = cHash.get(0);
+
+        return new Cacamba(
+                Integer.parseInt(cacambaHash.get(DBHelperCacamba.ID)),
+                cacambaHash.get(DBHelperCacamba.NOME));
+    }
+
 }

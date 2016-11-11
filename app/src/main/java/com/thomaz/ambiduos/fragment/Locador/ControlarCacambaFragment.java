@@ -19,6 +19,7 @@ import com.thomaz.ambiduos.to.Cacamba;
 import com.thomaz.ambiduos.to.Projetc;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
@@ -44,11 +45,13 @@ public class ControlarCacambaFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        final List<Cacamba> cacambas = new ArrayList<>();
+        final ArrayList<Cacamba> cacambas = new ArrayList<>();
 
         for (float i = 0; i < 10; i++) {
-            cacambas.add(new Cacamba("#A" + (int)i));
+            cacambas.add(new Cacamba((int) i, "#A" + (int)i));
         }
+
+        Collections.sort(cacambas);
 
         rvList.setAdapter(new SimpleDataAdapter<>(cacambas, R.layout.line_cacamba_controlar, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
