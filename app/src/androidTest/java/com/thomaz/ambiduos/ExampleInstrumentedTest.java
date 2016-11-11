@@ -31,7 +31,7 @@ public class ExampleInstrumentedTest {
     public void buscarCacamba() throws Exception {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        Cacamba encontrada = ConsultarLocacoesFragment.buscarCacamba(6, appContext);
+        Cacamba encontrada = ConsultarLocacoesFragment.buscarCacamba(5, appContext);
 
         assertEquals(5, encontrada.getId());
     }

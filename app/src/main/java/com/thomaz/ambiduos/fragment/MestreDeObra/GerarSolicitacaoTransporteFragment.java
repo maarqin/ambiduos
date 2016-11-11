@@ -12,10 +12,8 @@ import android.view.ViewGroup;
 import com.thomaz.ambiduos.BaseActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.CacambaAdapter;
-import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
 import com.thomaz.ambiduos.to.Cacamba;
 import com.thomaz.ambiduos.to.ClasseResiduo;
-import com.thomaz.ambiduos.to.SolicitacaoCacamba;
 
 import java.util.ArrayList;
 import java.util.List;

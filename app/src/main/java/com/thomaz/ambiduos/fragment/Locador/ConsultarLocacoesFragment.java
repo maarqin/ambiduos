@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -129,7 +128,7 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
             @Override
             public View getInfoWindow(Marker marker) {
 
-                UserDialog userDialog = new UserDialog();
+                UserDialog userDialog = UserDialog.getInstance();
                 userDialog.setTitle(marker.getTitle());
                 userDialog.setMessage("Caçamba com resíduo: Classe A \n\nDestino: Cooperativa fundão");
 
@@ -143,9 +142,16 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                 return null;
             }
         });
+
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(p1));
+
     }
 
+    /**
+     * @param id int
+     * @param context Context
+     * @return Cacamba
+     */
     public static Cacamba buscarCacamba(int id, Context context) {
         DBHelperCacamba helperCacamba = new DBHelperCacamba(context);
 

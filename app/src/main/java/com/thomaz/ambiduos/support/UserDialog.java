@@ -4,13 +4,27 @@ import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
 /**
- * Created by thomaz on 10/11/16.
+ * Created by thomaz on 10/10/16.
  */
-
 public class UserDialog {
 
     private String title;
     private String message;
+
+    private static UserDialog instance;
+
+    public static UserDialog getInstance() {
+        if( instance == null ) {
+            instance = new UserDialog();
+        }
+        return instance;
+    }
+
+    // Singleton
+    // Construct must to be private
+    private UserDialog() {
+
+    }
 
     public void show(Context context) {
 

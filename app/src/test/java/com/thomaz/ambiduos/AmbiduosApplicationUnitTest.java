@@ -4,9 +4,6 @@ import android.content.Context;
 import android.test.InstrumentationTestCase;
 import android.test.mock.MockContext;
 
-import com.thomaz.ambiduos.fragment.Locador.ConsultarLocacoesFragment;
-import com.thomaz.ambiduos.to.Cacamba;
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *

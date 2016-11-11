@@ -12,15 +12,12 @@ import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.SimpleViewActivity_;
-import com.thomaz.ambiduos.adapter.ProjectAdapter;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
 import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.to.Cacamba;
-import com.thomaz.ambiduos.to.Projetc;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
 import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;

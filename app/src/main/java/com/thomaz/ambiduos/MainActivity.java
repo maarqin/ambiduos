@@ -1,5 +1,6 @@
 package com.thomaz.ambiduos;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 import com.thomaz.ambiduos.fragment.Cooperativa.ConsultarDespachoResiduoCooperativaFragment;
@@ -144,6 +146,12 @@ public class MainActivity extends BaseActivity {
              case R.id.nav_minha_conta :
                  fragment = new MinhaContaFragment();
                  break;
+         }
+
+         View view = this.getCurrentFocus();
+         if (view != null) {
+             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
          }
          menuItem.setChecked(false);
          mDrawer.closeDrawers();
