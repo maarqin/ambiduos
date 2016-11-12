@@ -49,19 +49,7 @@ public class ConsultarSolicitacaoDeCacambaFragment extends Fragment {
         }
 
         rvList.setAdapter(new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_simple, rvList, getActivity()));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        SolicitacaoCacamba solicitacaoCacamba = solicitacaoCacambas.get(position);
 
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, solicitacaoCacamba);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
-                    }
-                }));
         return v;
 
     }

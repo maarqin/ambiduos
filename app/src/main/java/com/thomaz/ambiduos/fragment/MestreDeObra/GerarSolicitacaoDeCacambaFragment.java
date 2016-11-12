@@ -11,15 +11,19 @@ import android.view.ViewGroup;
 import com.thomaz.ambiduos.BaseActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
+import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
 import com.thomaz.ambiduos.to.SolicitacaoCacamba;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GerarSolicitacaoDeCacambaFragment extends Fragment implements View.OnClickListener {
+
+    private SimpleDataAdapter<SolicitacaoCacamba> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,13 +39,21 @@ public class GerarSolicitacaoDeCacambaFragment extends Fragment implements View.
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
+        DBHelperSolicitacaoCacamba helperSolicitacaoCacamba = new DBHelperSolicitacaoCacamba(getContext());
+
+        ArrayList<HashMap<String, String>> maps = helperSolicitacaoCacamba.all();
+
         final List<SolicitacaoCacamba> solicitacaoCacambas = new ArrayList<>();
 
-        for (float i = 0; i < 10; i++) {
-            solicitacaoCacambas.add(new SolicitacaoCacamba((int) i, "Projeto novo brasil", "Rua Niteroi, 48"));
+        for (HashMap<String, String> map : maps) {
+            solicitacaoCacambas.add(new SolicitacaoCacamba(
+                    Integer.parseInt(map.get(DBHelperSolicitacaoCacamba.ID)),
+                    "Projeto novo brasil", ""
+            ));
         }
 
-        rvList.setAdapter(new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_solicitacao_cacamba, rvList, getActivity()));
+        adapter = new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_solicitacao_cacamba, rvList, getActivity());
+        rvList.setAdapter(adapter);
 
         return v;
     }
@@ -54,5 +66,12 @@ public class GerarSolicitacaoDeCacambaFragment extends Fragment implements View.
     @Override
     public void onClick(View view) {
         ((BaseActivity) getActivity()).setNewFragment(new InformarCacambaFragment());
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        adapter.notifyDataSetChanged();
     }
 }

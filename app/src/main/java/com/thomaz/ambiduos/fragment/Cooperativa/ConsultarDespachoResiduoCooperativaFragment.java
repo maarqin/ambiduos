@@ -11,9 +11,11 @@ import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
+import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
 import com.thomaz.ambiduos.to.SolicitacaoCacamba;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -34,10 +36,18 @@ public class ConsultarDespachoResiduoCooperativaFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
+        DBHelperSolicitacaoCacamba helperSolicitacaoCacamba = new DBHelperSolicitacaoCacamba(getActivity());
+
+        List<HashMap<String, String>> maps = helperSolicitacaoCacamba.all();
+
         final List<SolicitacaoCacamba> solicitacaoCacambas = new ArrayList<>();
 
-        for (float i = 0; i < 10; i++) {
-            solicitacaoCacambas.add(new SolicitacaoCacamba((int)i, "Obra " + (int)i, "Classe A"));
+        for (HashMap<String, String> map : maps) {
+            solicitacaoCacambas.add(new SolicitacaoCacamba(
+                    Integer.parseInt(map.get(DBHelperSolicitacaoCacamba.ID)),
+                    map.get(DBHelperSolicitacaoCacamba.OBRA_ID),
+                    map.get(DBHelperSolicitacaoCacamba.LOCADORA)
+            ));
         }
 
         rvList.setAdapter(new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_controlar_despacho_cooperaiva, rvList, getActivity()));

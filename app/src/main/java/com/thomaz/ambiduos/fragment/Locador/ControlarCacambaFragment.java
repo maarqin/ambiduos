@@ -51,19 +51,7 @@ public class ControlarCacambaFragment extends Fragment {
         Collections.sort(cacambas);
 
         rvList.setAdapter(new SimpleDataAdapter<>(cacambas, R.layout.line_cacamba_controlar, rvList, getActivity()));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Cacamba projetc = cacambas.get(position);
 
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, projetc);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
-                    }
-                }));
         return v;
 
     }

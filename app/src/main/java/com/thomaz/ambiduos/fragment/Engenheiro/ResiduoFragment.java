@@ -50,19 +50,6 @@ public class ResiduoFragment extends CustomFragment {
         }
 
         rvList.setAdapter(new ResiduoAdapter<>(residuos, R.layout.line_residuo, rvList, getActivity()));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Residuo projetc = residuos.get(position);
-
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, projetc);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
-                    }
-                }));
 
         return v;
     }

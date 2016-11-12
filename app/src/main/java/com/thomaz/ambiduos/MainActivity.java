@@ -148,11 +148,6 @@ public class MainActivity extends BaseActivity {
                  break;
          }
 
-         View view = this.getCurrentFocus();
-         if (view != null) {
-             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-         }
          menuItem.setChecked(false);
          mDrawer.closeDrawers();
 

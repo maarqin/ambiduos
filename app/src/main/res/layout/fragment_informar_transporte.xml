@@ -7,17 +7,19 @@
     >
 
     <EditText
+        android:id="@+id/et_transp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Escolha a transportadora"
+        android:focusable="false"
         />
 
     <Button
+        android:id="@+id/bt_enviar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:text="Enviar"
-
         android:textColor="@android:color/white"
         android:layout_marginTop="15dp"
         />

@@ -12,12 +12,12 @@ public class DBHelperCacamba extends CustomSQLiteOpenHelper {
     static public final String ID = "id";
     static public final String NOME = "nome";
 
-    static public final String TABLE = "amb_cacamba";
+    static public final String TABLE = "amb_cacambas";
 
     public DBHelperCacamba(Context context) {
         super(context, ID, TABLE);
 
-        fields.add(new CustomSQLiteOpenHelper.Fields(ID, "integer"));
+        fields.add(new CustomSQLiteOpenHelper.Fields(ID, "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"));
         fields.add(new CustomSQLiteOpenHelper.Fields(NOME, "text"));
     }
 

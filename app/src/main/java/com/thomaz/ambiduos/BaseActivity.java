@@ -1,5 +1,6 @@
 package com.thomaz.ambiduos;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -9,6 +10,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
 /**
  * Created by thomaz on 05/10/16.
@@ -47,6 +50,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         if( stackable ) fragmentTransaction.addToBackStack(null);
 
         fragmentTransaction.replace(R.id.flContent, fragment).commit();
+
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
+
     }
 
     private void showBackButton() {

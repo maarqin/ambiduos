@@ -10,15 +10,17 @@ import com.thomaz.ambiduos.support.CustomSQLiteOpenHelper;
 public class DBHelperSolicitacaoTransporte extends CustomSQLiteOpenHelper {
 
     static public final String ID = "id";
-    static public final String NOME = "nome";
+    static public final String CACAMBA_ID = "cacamba_id";
+    static public final String COOPERATIVA = "cooperativa";
 
-    static public final String TABLE = "amb_cacamba";
+    static public final String TABLE = "amb_transportes";
 
     public DBHelperSolicitacaoTransporte(Context context) {
         super(context, ID, TABLE);
 
-        fields.add(new Fields(ID, "integer"));
-        fields.add(new Fields(NOME, "text"));
+        fields.add(new Fields(ID, "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"));
+        fields.add(new Fields(CACAMBA_ID, "integer"));
+        fields.add(new Fields(COOPERATIVA, "text"));
     }
 
 

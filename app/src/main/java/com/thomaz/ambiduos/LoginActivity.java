@@ -17,6 +17,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.thomaz.ambiduos.dbs.DBHelperCacamba;
+import com.thomaz.ambiduos.dbs.DBHelperDespachoResiduo;
+import com.thomaz.ambiduos.dbs.DBHelperMestreObra;
+import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
+import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoTransporte;
 import com.thomaz.ambiduos.support.UserDefaults;
 import com.thomaz.ambiduos.support.WSUrlProvider;
 import com.thomaz.ambiduos.to.Cacamba;
@@ -57,23 +61,27 @@ public class LoginActivity extends AppCompatActivity {
         if( !defaults.hasKey(OPENED) ) {
             defaults.write(OPENED, true);
 
-            DBHelperCacamba dbHelperCacamba = new DBHelperCacamba(this);
-
-            dbHelperCacamba.dropTable();
-
-            ArrayList<HashMap<String, String>> cs = new ArrayList<>();
-            for (float i = 0; i < 10; i++) {
-                Cacamba c = new Cacamba((int) i, "#A" + (int)i);
-
-                HashMap<String, String> toNew = new HashMap<>();
-                toNew.put(DBHelperCacamba.ID, c.getId() + "");
-                toNew.put(DBHelperCacamba.NOME, c.getName());
-
-                cs.add(toNew);
-            }
+            new DBHelperCacamba(this).dropTable();
+            new DBHelperDespachoResiduo(this).dropTable();
+            new DBHelperMestreObra(this).dropTable();
+            new DBHelperMestreObra(this).dropTable();
+            new DBHelperSolicitacaoCacamba(this).dropTable();
+            new DBHelperSolicitacaoTransporte(this);
 
 
-            dbHelperCacamba.store(cs);
+//            ArrayList<HashMap<String, String>> cs = new ArrayList<>();
+//            for (float i = 0; i < 10; i++) {
+//                Cacamba c = new Cacamba((int) i, "#A" + (int)i);
+//
+//                HashMap<String, String> toNew = new HashMap<>();
+//                toNew.put(DBHelperCacamba.ID, c.getId() + "");
+//                toNew.put(DBHelperCacamba.NOME, c.getName());
+//
+//                cs.add(toNew);
+//            }
+
+
+//            dbHelperCacamba.store(cs);
         }
 
         // Set up the login form.

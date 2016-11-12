@@ -10,16 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:hint="Informe a qtde. de caçambas"
+        android:inputType="numberDecimal"
+        android:id="@+id/et_qtde"
         />
 
-    <Button
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:text="Enviar"
-
-        android:textColor="@android:color/white"
-        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:hint="Locadora"
+        android:focusable="false"
+        android:id="@+id/et_locadora"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/bt_enviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="Enviar"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

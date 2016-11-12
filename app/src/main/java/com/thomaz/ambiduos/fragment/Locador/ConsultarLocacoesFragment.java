@@ -73,19 +73,7 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
         }
 
         rvList.setAdapter(new SimpleDataAdapter<>(locacoes, R.layout.line_simple, rvList, getActivity()));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        Locacao projetc = locacoes.get(position);
 
-                        Intent intent = new Intent(getActivity(), SimpleViewActivity_.class);
-                        intent.putExtra(EXTRA, projetc);
-                        intent.putExtra(KEY, PROJECT);
-
-                        startActivity(intent);
-                    }
-                }));
         return v;
     }
 
@@ -159,7 +147,7 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                 DBHelperCacamba.ID, DBHelperCacamba.EQUAL, String.valueOf(id)
         ).execute();
 
-        if( cHash.size() == 0 ) return null;
+        if( cHash.size() == 0 ) return new Cacamba(-1);
 
         HashMap<String, String> cacambaHash = cHash.get(0);
 

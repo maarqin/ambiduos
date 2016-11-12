@@ -18,7 +18,16 @@
         android:layout_height="match_parent"
         >
 
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
+        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
+            <!--android:id="@+id/singleChatFab"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:fab_colorNormal="?attr/colorAccent"-->
+            <!--app:fab_colorPressed="#00b1c7"-->
+            <!--app:fab_size="mini"-->
+            <!--app:fab_title="New chat"/>-->
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/multiple_actions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,11 +40,9 @@
             android:layout_gravity="end|bottom"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp">
-
-
-
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+            android:layout_marginEnd="16dp"
+            android:src="@mipmap/ic_add"
+            />
 
     </RelativeLayout>
 
