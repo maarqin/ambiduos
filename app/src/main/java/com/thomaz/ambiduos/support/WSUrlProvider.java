@@ -5,7 +5,7 @@ package com.thomaz.ambiduos.support;
  */
 public class WSUrlProvider {
 
-    static private final String MAIN_URL = "http://educ.senailondrina.com.br:82/api";
+    static private final String MAIN_URL = "https://ambiduos.com.br/api";
 
     public static final class Login {
         static public final String URL = MAIN_URL + "/AccountApi/Logar";

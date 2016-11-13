@@ -89,7 +89,7 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                     new MarkerOptions()
                             .position(ps[i])
                             .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_residuo_cacamba))
-                            .title("Cacamba " + i)
+                            // .title("Cacamba " + i)
             );
 
 
@@ -102,24 +102,24 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-            @Override
-            public View getInfoWindow(Marker marker) {
-
-                UserDialog userDialog = UserDialog.getInstance();
-                userDialog.setTitle(marker.getTitle());
-                userDialog.setMessage("Caçamba com resíduo: Classe A \n\nDestino: Cooperativa fundão");
-
-                userDialog.show(getContext());
-
-                return null;
-            }
-
-            @Override
-            public View getInfoContents(Marker marker) {
-                return null;
-            }
-        });
+//        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+//            @Override
+//            public View getInfoWindow(Marker marker) {
+//
+//                UserDialog userDialog = UserDialog.getInstance();
+//                userDialog.setTitle(marker.getTitle());
+//                userDialog.setMessage("Caçamba com resíduo: Classe A \n\nDestino: Cooperativa fundão");
+//
+//                userDialog.show(getContext());
+//
+//                return null;
+//            }
+//
+//            @Override
+//            public View getInfoContents(Marker marker) {
+//                return null;
+//            }
+//        });
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(p1));
 

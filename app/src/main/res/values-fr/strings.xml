@@ -1,27 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ambiduos</string>
-    <string name="drawer_open">Abrir navegação</string>
-    <string name="drawer_close">Fechar navegação</string>
-    <string name="str_btn_entrar"><b>Clique aqui</b>\npara acessar a sua conta</string>
+    <string name="drawer_open">Navigation ouverte</string>
+    <string name="drawer_close">Fermer la navigation</string>
+    <string name="str_btn_entrar"><b>Cliquez ici</b>\nbpour accéder à votre compte</string>
 
-    <string name="title_activity_login">Entrar</string>
+    <string name="title_activity_login">Entrer</string>
 
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Senha</string>
-    <string name="prompt_type_user">Tipo usuário</string>
-    <string name="action_sign_in">Entrar</string>
-    <string name="action_sign_in_short">Entrar</string>
-    <string name="error_invalid_email">Este e-mail é inválido</string>
-    <string name="error_invalid_password">Senha muito curta</string>
-    <string name="error_incorrect_password">Senha errada</string>
-    <string name="error_field_required">Campo obrigatório</string>
-    <string name="permission_rationale">Permita acesso aos contatos</string>
-    <string name="title_activity_maps">Mapa</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_type_user">Type utilisateur</string>
+    <string name="action_sign_in">Entrer</string>
+    <string name="action_sign_in_short">Entrer</string>
+    <string name="error_invalid_email">Cet e-mail est invalide</string>
+    <string name="error_invalid_password">Mot de passe trop court</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="error_field_required">Champ obligatoire</string>
+    <string name="permission_rationale">Autoriser l\'accès aux contacts</string>
+    <string name="title_activity_maps">Carte</string>
 
-    <string name="op_login_coop">Map</string>
-    <string name="op_login_engen">Map</string>
-    <string name="op_login_locad">Map</string>
-    <string name="op_login_mestre">Map</string>
-    <string name="op_login_transp">Map</string>
+    <string name="op_login_coop">Coopérative</string>
+    <string name="op_login_engen">Ingénieur</string>
+    <string name="op_login_locad">Localisateur</string>
+    <string name="op_login_mestre">Travail de maître</string>
+    <string name="op_login_transp">Transporteur</string>
+
+    <!-- Gerais -->
+    <string name="title_inicio">Première</string>
+    <string name="outra_op_conta">Mon compte</string>
+    <string name="outra_op_sair">Laisser</string>
+    <string name="menu_ident">Nom du membre</string>
+    <string name="outra_op">D\'autres options</string>
+    <string name="welcome">Bienvenue utilisateur,\nvisitez leurs rôles dans le menu latéral</string>
+
+    <!-- Cooperativa -->
+    <string name="menu_despacho_residuo">Ordre de contrôle des déchets</string>
+    <string name="title_despacho_residuo">Déchets de commande</string>
+    <string name="bt_aceitar">Accepter</string>
+    <string name="bt_recusar">Refuser</string>
+
+    <!-- Engenheiro -->
+    <string name="menu_solicitar_cacamba">Demande seau</string>
+    <string name="title_solicitar_cacamba">Demande de godet</string>
+    <string name="menu_solicitar_transporte">Le transport de la demande</string>
+    <string name="title_solicitar_transporte">Demande de transport</string>
+    <string name="menu_controlar_obra">Travaux de contrôle</string>
+    <string name="title_controlar_obra">Oeuvres</string>
+    <string name="menu_controlar_mestre">Le travail de contrôle de maître</string>
+
+    <string name="title_obra_aberta">Travail ouvert</string>
+    <string name="title_tab_aberta_material">Matériels</string>
+    <string name="title_tab_aberta_residuo">Déchets</string>
+    <string name="title_tab_aberta_cacamba">Seaux</string>
+
+    <string name="title_controlar_mestre">Travail de maître</string>
+    <string name="hint_digite_algo">Entrez votre recherche ici</string>
+    <string name="bt_buscar">Recherche</string>
+
+    <!-- Locador -->
+    <string name="menu_solicitacoes_cacamba">Demandes de godet</string>
+    <string name="title_solicitacoes_cacamba">@string/menu_solicitacoes_cacamba</string>
+    <string name="menu_despachar_residuo">Déchets dispatching</string>
+    <string name="title_despachar_residuo">Déchets de commande</string>
+    <string name="hint_despacho_residuo_obra">Choisir de travailler</string>
+    <string name="hint_despacho_residuo_cacamba">Sélectionnez le seau</string>
+    <string name="hint_despacho_cooperativa">Choisissez la coopérative</string>
+    <string name="bt_solicitar_despacho_cooperativa">Demande pour la coopérative</string>
+    <string name="bt_solicitar_despacho">Demande pour</string>
+
+    <string name="menu_despachar_residuo_cooperativa">Déchets Dispatching (Coopérative)</string>
+    <string name="title_despachar_residuo_cooperativa">Commandez la coopérative</string>
+    <string name="menu_consultar_locacao">Consulter les emplacements</string>
+    <string name="title_consultar_locacao">Baux</string>
+    <string name="menu_controlar_cacamba">Seaux de contrôle</string>
+    <string name="title_controlar_cacamba">Contrôle Bucket</string>
+    <string name="hint_digite_buscar_cacamba">Entrez le code trémie</string>
+    <string name="search_cacamba_nao_achada">Seau not found</string>
+
+    <!-- Mestre -->
+    <string name="title_informar_transp">Rapport porteuse</string>
+    <string name="title_informar_local">Rapport locatif</string>
+    <string name="hint_esc_transp">Choisir de travailler</string>
+    <string name="hint_esc_coop">Choisissez la coopérative</string>
+    <string name="bt_enviar">Envoyer</string>
+
+    <!-- Transp -->
+    <string name="menu_controlar_papel">Les documents de contrôle</string>
+    <string name="title_controlar_papel">Documents</string>
+    <string name="menu_solicitacoes">Demandes de transport</string>
+    <string name="title_solicitacoes">Demandes</string>
+    <string name="str_nome_user">Nom</string>
+    <string name="str_data_de_nascimento_str">Date de naissance</string>
+    <string name="str_cargo_user">Bureau</string>
+    <string name="str_proxima_etapa">Étape suivante</string>
+    <string name="str_informe_qtde_cacambas">Informer le qté. seaux</string>
+    <string name="str_locadora_field">Bailleur</string>
+    <string name="bt_salvar">Sauvegarder</string>
+    <string name="str_realizar_cadastro">Effectuer registre</string>
+    <string name="str_nao_documentos">Il y a des documents ici</string>
+    <string name="str_nao_solicitacoes">Aucune demande ici</string>
+    <string name="str_error_login">Email ou mot de passe est incorrect</string>
+    <string name="str_enviando_dados">Attendez, l\'envoi de données</string>
+
 </resources>

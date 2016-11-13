@@ -18,6 +18,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimaryDark"
         android:textColor="@android:color/white"
-        android:text="Próxima etapa"
+        android:text="@string/str_proxima_etapa"
         />
 </RelativeLayout>

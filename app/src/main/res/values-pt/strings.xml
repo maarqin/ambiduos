@@ -27,6 +27,79 @@
 
     <!-- Gerais -->
     <string name="title_inicio">Início</string>
+    <string name="outra_op_conta">Minha conta</string>
+    <string name="outra_op_sair">Sair</string>
+    <string name="menu_ident">Nome do usuário</string>
+    <string name="outra_op">Outras opções</string>
+    <string name="welcome">Seja bem-vindo usuário,\nacesse suas funções no menu lateral</string>
 
     <!-- Cooperativa -->
+    <string name="menu_despacho_residuo">Controlar despacho de resíduos</string>
+    <string name="title_despacho_residuo">Despacho de resíduos</string>
+    <string name="bt_aceitar">Aceitar</string>
+    <string name="bt_recusar">Recusar</string>
+
+    <!-- Engenheiro -->
+    <string name="menu_solicitar_cacamba">Solicitar caçamba</string>
+    <string name="title_solicitar_cacamba">Solicitação de caçamba</string>
+    <string name="menu_solicitar_transporte">Solicitar transporte</string>
+    <string name="title_solicitar_transporte">Solicitação de transporte</string>
+    <string name="menu_controlar_obra">Controlar obras</string>
+    <string name="title_controlar_obra">Obras</string>
+    <string name="menu_controlar_mestre">Controlar mestre de obra</string>
+
+    <string name="title_obra_aberta">Obra aberta</string>
+    <string name="title_tab_aberta_material">Materiais</string>
+    <string name="title_tab_aberta_residuo">Resíduos</string>
+    <string name="title_tab_aberta_cacamba">Caçambas</string>
+
+    <string name="title_controlar_mestre">Mestre de obra</string>
+    <string name="hint_digite_algo">Digite aqui sua pesquisa</string>
+    <string name="bt_buscar">Buscar</string>
+
+    <!-- Locador -->
+    <string name="menu_solicitacoes_cacamba">Solicitações de caçamba</string>
+    <string name="title_solicitacoes_cacamba">@string/menu_solicitacoes_cacamba</string>
+    <string name="menu_despachar_residuo">Despachar resíduos</string>
+    <string name="title_despachar_residuo">Despacho de resíduos</string>
+    <string name="hint_despacho_residuo_obra">Escolha à obra</string>
+    <string name="hint_despacho_residuo_cacamba">Escolha à caçamba</string>
+    <string name="hint_despacho_cooperativa">Escolha à cooperativa</string>
+    <string name="bt_solicitar_despacho_cooperativa">Solicitar despacho à cooperativa</string>
+    <string name="bt_solicitar_despacho">Solicitar despacho</string>
+
+    <string name="menu_despachar_residuo_cooperativa">Despachar resíduos (Cooperativa)</string>
+    <string name="title_despachar_residuo_cooperativa">Despacho à cooperativa</string>
+    <string name="menu_consultar_locacao">Consultar locações</string>
+    <string name="title_consultar_locacao">Locações</string>
+    <string name="menu_controlar_cacamba">Controlar caçambas</string>
+    <string name="title_controlar_cacamba">Controle de caçambas</string>
+    <string name="hint_digite_buscar_cacamba">Digite o código da caçamba</string>
+    <string name="search_cacamba_nao_achada">Caçamba não encontrada</string>
+
+    <!-- Mestre -->
+    <string name="title_informar_transp">Informar transportadora</string>
+    <string name="title_informar_local">Informar locadora</string>
+    <string name="hint_esc_transp">Escolha à obra</string>
+    <string name="hint_esc_coop">Escolha à cooperativa</string>
+    <string name="bt_enviar">Enviar</string>
+
+    <!-- Transp -->
+    <string name="menu_controlar_papel">Controlar documentos</string>
+    <string name="title_controlar_papel">Documentos</string>
+    <string name="menu_solicitacoes">Solicitações de transporte</string>
+    <string name="title_solicitacoes">Solicitações</string>
+    <string name="str_nome_user">Nome</string>
+    <string name="str_data_de_nascimento_str">Data de nascimento</string>
+    <string name="str_cargo_user">Cargo</string>
+    <string name="str_proxima_etapa">Próxima etapa</string>
+    <string name="str_informe_qtde_cacambas">Informe a qtde. de caçambas</string>
+    <string name="str_locadora_field">Locadora</string>
+    <string name="bt_salvar">Salvar</string>
+    <string name="str_realizar_cadastro">Realizar cadastro</string>
+    <string name="str_nao_documentos">Não há documentos aqui</string>
+    <string name="str_nao_solicitacoes">Não há solicitações aqui</string>
+    <string name="str_error_login">Email ou senha incorretos</string>
+    <string name="str_enviando_dados">Aguarde, enviando dados</string>
+
 </resources>

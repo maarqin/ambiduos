@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Não há solicitações aqui"
+        android:text="@string/str_nao_solicitacoes"
         android:gravity="center"
         android:textSize="18sp"
         />

@@ -9,7 +9,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Informe a qtde. de caçambas"
+        android:hint="@string/str_informe_qtde_cacambas"
         android:inputType="numberDecimal"
         android:id="@+id/et_qtde"
         />
@@ -17,7 +17,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Locadora"
+        android:hint="@string/str_locadora_field"
         android:focusable="false"
         android:id="@+id/et_locadora"
         />
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:text="Enviar"
+            android:text="@string/bt_enviar"
             android:textColor="@android:color/white"
             android:layout_marginTop="15dp"
             android:layout_alignParentBottom="true"

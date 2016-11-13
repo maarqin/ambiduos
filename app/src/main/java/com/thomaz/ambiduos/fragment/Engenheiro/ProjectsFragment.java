@@ -33,6 +33,8 @@ public class ProjectsFragment extends CustomFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_simple_list, container, false);
 
+        getActivity().setTitle(R.string.title_controlar_obra);
+
         RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
 
         rvList.setHasFixedSize(true);
@@ -72,8 +74,4 @@ public class ProjectsFragment extends CustomFragment {
         return v;
     }
 
-    @Override
-    public String toString() {
-        return "Obras";
-    }
 }

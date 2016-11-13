@@ -32,6 +32,9 @@
     <string name="menu_ident">Nome do usuário</string>
     <string name="outra_op">Outras opções</string>
     <string name="welcome">Seja bem-vindo usuário,\nacesse suas funções no menu lateral</string>
+    <string name="str_error_login">Email ou senha incorretos</string>
+    <string name="str_enviando_dados">Aguarde, enviando dados</string>
+
 
     <!-- Cooperativa -->
     <string name="menu_despacho_residuo">Controlar despacho de resíduos</string>
@@ -89,5 +92,15 @@
     <string name="title_controlar_papel">Documentos</string>
     <string name="menu_solicitacoes">Solicitações de transporte</string>
     <string name="title_solicitacoes">Solicitações</string>
+    <string name="str_nome_user">Nome</string>
+    <string name="str_data_de_nascimento_str">Data de nascimento</string>
+    <string name="str_cargo_user">Cargo</string>
+    <string name="str_proxima_etapa">Próxima etapa</string>
+    <string name="str_informe_qtde_cacambas">Informe a qtde. de caçambas</string>
+    <string name="str_locadora_field">Locadora</string>
+    <string name="bt_salvar">Salvar</string>
+    <string name="str_realizar_cadastro">Realizar cadastro</string>
+    <string name="str_nao_documentos">Não há documentos aqui</string>
+    <string name="str_nao_solicitacoes">Não há solicitações aqui</string>
 
 </resources>

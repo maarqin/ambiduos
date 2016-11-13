@@ -41,7 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setNewFragment(Fragment fragment, boolean stackable) {
         // Set action bar title
-        setTitle(fragment.toString());
+        // setTitle(fragment.toString());
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
 
