@@ -27,6 +27,8 @@ public class ConsultarDespachoResiduoCooperativaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        getActivity().setTitle(R.string.title_despacho_residuo);
+
         View v = inflater.inflate(R.layout.fragment_simple_list, container, false);
 
         RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
@@ -45,7 +47,7 @@ public class ConsultarDespachoResiduoCooperativaFragment extends Fragment {
         for (HashMap<String, String> map : maps) {
             solicitacaoCacambas.add(new SolicitacaoCacamba(
                     Integer.parseInt(map.get(DBHelperSolicitacaoCacamba.ID)),
-                    map.get(DBHelperSolicitacaoCacamba.OBRA_ID),
+                    map.get(DBHelperSolicitacaoCacamba.OBRA),
                     map.get(DBHelperSolicitacaoCacamba.LOCADORA)
             ));
         }
@@ -56,9 +58,4 @@ public class ConsultarDespachoResiduoCooperativaFragment extends Fragment {
 
     }
 
-
-    @Override
-    public String toString() {
-        return "Despacho de resíduo";
-    }
 }

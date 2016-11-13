@@ -42,9 +42,18 @@ public class ProjectsFragment extends CustomFragment {
 
         final List<Projetc> projetcs = new ArrayList<>();
 
-        for (float i = 0; i < 10; i++) {
-            projetcs.add(new Projetc("Projeto novo brasil", "Rua Niteroi, 48"));
-        }
+        projetcs.add(new Projetc("ALAMEDA ECO RESORT & RESIDENCE", "Rua Tereza Zanette Lopes, 203, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("CHAMPS ÉLYSÉES RESIDENCE", "Rua Ernani Lacerda de Athayde, 930, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("ÉLÉGANCE", "Rua Paranaguá, 410, Centro - Londrina, PR"));
+        projetcs.add(new Projetc("LE BLANC", "R. João Huss, 855, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("PARC ROCHER", "Alameda Pé Vermelho, 180, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("PRIME PARANAGUÁ", "Rua João Huss, 881, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("TRÉSOR RESIDENCE", "Rua Gleba Palhano, 48"));
+        projetcs.add(new Projetc("VERT RESIDENCE", "Rua Quintino Niteroi, 48"));
+        projetcs.add(new Projetc("ARQUITETO VILANOVA ARTIGAS", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("AUGUSTE RODIN", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("CHAMPS ÉLYSÉES RESIDENCE", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("COLLORI", "Rua Quintino Bocaiúva, 298, Zona 07 - Maringá, PR"));
 
         rvList.setAdapter(new ProjectAdapter<>(projetcs, R.layout.line_project, rvList, getActivity()));
         rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),

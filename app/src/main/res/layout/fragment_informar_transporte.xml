@@ -10,18 +10,33 @@
         android:id="@+id/et_transp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Escolha a transportadora"
+        android:hint="@string/hint_esc_transp"
         android:focusable="false"
         />
 
-    <Button
-        android:id="@+id/bt_enviar"
+    <EditText
+        android:id="@+id/et_cooperativa"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:text="Enviar"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="15dp"
+        android:layout_height="match_parent"
+        android:hint="@string/hint_esc_coop"
+        android:focusable="false"
         />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/bt_enviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/bt_enviar"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

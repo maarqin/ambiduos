@@ -14,11 +14,10 @@ public class MinhaContaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        getActivity().setTitle(R.string.outra_op_conta);
+
         return inflater.inflate(R.layout.fragment_minha_conta, container, false);
     }
 
-    @Override
-    public String toString() {
-        return "Minha conta";
-    }
 }

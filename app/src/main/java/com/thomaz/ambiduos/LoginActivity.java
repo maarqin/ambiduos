@@ -22,20 +22,8 @@ import com.thomaz.ambiduos.dbs.DBHelperMestreObra;
 import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
 import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoTransporte;
 import com.thomaz.ambiduos.support.UserDefaults;
-import com.thomaz.ambiduos.support.WSUrlProvider;
-import com.thomaz.ambiduos.to.Cacamba;
-import com.thomaz.ambiduos.to.User;
 
 import org.androidannotations.annotations.EActivity;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import thomaz.com.br.httpproject.suport.Post;
-import thomaz.com.br.httpproject.suport.Request;
-import thomaz.com.br.httpproject.suport.ResultRequest;
 
 /**
  * A login screen that offers login via email/password.
@@ -67,21 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             new DBHelperMestreObra(this).dropTable();
             new DBHelperSolicitacaoCacamba(this).dropTable();
             new DBHelperSolicitacaoTransporte(this);
-
-
-//            ArrayList<HashMap<String, String>> cs = new ArrayList<>();
-//            for (float i = 0; i < 10; i++) {
-//                Cacamba c = new Cacamba((int) i, "#A" + (int)i);
-//
-//                HashMap<String, String> toNew = new HashMap<>();
-//                toNew.put(DBHelperCacamba.ID, c.getId() + "");
-//                toNew.put(DBHelperCacamba.NOME, c.getName());
-//
-//                cs.add(toNew);
-//            }
-
-
-//            dbHelperCacamba.store(cs);
         }
 
         // Set up the login form.
@@ -103,7 +76,13 @@ public class LoginActivity extends AppCompatActivity {
         type.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                final CharSequence[] items = {"Cooperativa", "Engenheiro", "Locador", "Mestre de obra", "Transportador"};
+                final CharSequence[] items = {
+                        getString(R.string.op_login_coop),
+                        getString(R.string.op_login_engen),
+                        getString(R.string.op_login_locad),
+                        getString(R.string.op_login_mestre),
+                        getString(R.string.op_login_transp)
+                };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                 builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -123,31 +102,32 @@ public class LoginActivity extends AppCompatActivity {
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                if( attemptLogin() ) {
 
-                @MenuRes int menu;
-                switch (type.getText().toString()) {
-                    case "Cooperativa" :
-                        menu = R.menu.menu_navigation_cooperativa;
-                        break;
-                    case "Mestre de obra" :
-                        menu = R.menu.menu_navigation_mestre_de_obra;
-                        break;
-                    case "Locador" :
-                        menu = R.menu.menu_navigation_locador;
-                        break;
-                    case "Transportador" :
-                        menu = R.menu.menu_navigation_transportador;
-                        break;
-                    default:
-                        menu = R.menu.menu_navigation_engenheiro;
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                    @MenuRes int menu;
+                    switch (type.getText().toString()) {
+                        case "Cooperativa":
+                            menu = R.menu.menu_navigation_cooperativa;
+                            break;
+                        case "Mestre de obra":
+                            menu = R.menu.menu_navigation_mestre_de_obra;
+                            break;
+                        case "Locador":
+                            menu = R.menu.menu_navigation_locador;
+                            break;
+                        case "Transportador":
+                            menu = R.menu.menu_navigation_transportador;
+                            break;
+                        default:
+                            menu = R.menu.menu_navigation_engenheiro;
+                    }
+                    intent.putExtra("MENU", menu);
+
+                    startActivity(intent);
                 }
-                intent.putExtra("MENU", menu);
 
-                startActivity(intent);
-
-
-                // attemptLogin();
             }
         });
     }
@@ -157,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    private void attemptLogin() {
+    private boolean attemptLogin() {
 
         // Reset errors.
         mEmailView.setError(null);
@@ -192,49 +172,52 @@ public class LoginActivity extends AppCompatActivity {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
             focusView.requestFocus();
+
+            return false;
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            JSONObject object = new JSONObject();
-            try {
-                object.put(WSUrlProvider.Login.Entry.EMAIL, email);
-                object.put(WSUrlProvider.Login.Entry.SENHA, password);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            //JSONObject object = new JSONObject();
+            //try {
+                //object.put(WSUrlProvider.Login.Entry.EMAIL, email);
+                //object.put(WSUrlProvider.Login.Entry.SENHA, password);
+            //} catch (JSONException e) {
+                //e.printStackTrace();
+            //}
 
-            Post post = new Post(WSUrlProvider.Login.URL);
-            post.setBody(object);
+            //Post post = new Post(WSUrlProvider.Login.URL);
+            //post.setBody(object);
 
-            Request request = new Request(post);
-            request.setListener(new ResultRequest(LoginActivity.this, R.string.app_name, "Aguarde, enviando dados") {
-                @Override
-                public void onSuccess(JSONObject object, boolean b) throws Exception {
+            //Request request = new Request(post);
+            //request.setListener(new ResultRequest(LoginActivity.this, R.string.app_name, "Aguarde, enviando dados") {
+                //@Override
+                //public void onSuccess(JSONObject object, boolean b) throws Exception {
 
-                    JSONObject user = object.getJSONObject(WSUrlProvider.Login.Exit.USER);
-                    int tipo = user.getInt("TipoUsuario");
+                    //JSONObject user = object.getJSONObject(WSUrlProvider.Login.Exit.USER);
+                    //int tipo = user.getInt("TipoUsuario");
 
-                    User newUser = new User();
-                    newUser.setEmpresa(user.getString("Empresa"));
-                    newUser.setId(user.getInt("Id"));
-                    newUser.setNome(user.getString("Nome"));
-                    newUser.setCpf(user.getString("CPF"));
-                    newUser.setEmail(user.getString("Email"));
-                    newUser.setTelefone(user.getString("Telefone"));
-                    newUser.setEndereco(user.getString("Endereco"));
-                    newUser.setCep(user.getString("CEP"));
+                    //User newUser = new User();
+                    //newUser.setEmpresa(user.getString("Empresa"));
+                    //newUser.setId(user.getInt("Id"));
+                    //newUser.setNome(user.getString("Nome"));
+                    //newUser.setCpf(user.getString("CPF"));
+                    //newUser.setEmail(user.getString("Email"));
+                    //newUser.setTelefone(user.getString("Telefone"));
+                    //newUser.setEndereco(user.getString("Endereco"));
+                    //newUser.setCep(user.getString("CEP"));
                     // newUser.setEmpresaId(user.getInt("EmpresaId"));
-                    newUser.setTipo(user.getInt("TipoUsuario"));
+                    //newUser.setTipo(user.getInt("TipoUsuario"));
 
 
                     // Intent intent = new Intent(LoginActivity.this, a);
                     // intent.putExtra("USER_CURRENT", newUser);
 
                     // startActivity(intent);
-                }
-            });
+                //}
+            //});
 
-            request.execute();
+            //request.execute();
+            return true;
         }
     }
 
@@ -248,9 +231,6 @@ public class LoginActivity extends AppCompatActivity {
         return password.length() > 4;
     }
 
-    public class TypeUser {
-        static final int ADMINISTRADOR = 2;
-        static final int MESTRE_DE_OBRA = 1;
-    }
+
 }
 

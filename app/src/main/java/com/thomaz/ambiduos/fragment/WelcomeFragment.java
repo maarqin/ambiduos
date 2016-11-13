@@ -17,12 +17,10 @@ public class WelcomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+        getActivity().setTitle(R.string.title_inicio);
+
         return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 
-    @Override
-    public String toString() {
-        return "Início";
-    }
 }

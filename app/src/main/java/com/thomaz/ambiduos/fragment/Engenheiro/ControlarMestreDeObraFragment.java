@@ -18,8 +18,8 @@ import com.thomaz.ambiduos.EasyCreateRowActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
 import com.thomaz.ambiduos.dbs.DBHelperMestreObra;
-import com.thomaz.ambiduos.to.CustomClick;
 import com.thomaz.ambiduos.to.MestreDeObra;
+import com.thomaz.ambiduos.to.StrategyOnClick;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,6 +40,8 @@ public class ControlarMestreDeObraFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_simple_list_controlar, container, false);
 
+        getActivity().setTitle(R.string.title_controlar_mestre);
+
         rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
 
         rvList.setHasFixedSize(true);
@@ -47,11 +49,14 @@ public class ControlarMestreDeObraFragment extends Fragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
+        final EditText et_search = ((EditText) v.findViewById(R.id.et_search));
+        et_search.setHint(R.string.hint_digite_algo);
+
         v.findViewById(R.id.multiple_actions).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), EasyCreateRowActivity.class);
-                intent.putExtra(EasyCreateRowActivity.LAYOUT, R.layout.layout_activity_cadastro_mestre);
+                intent.putExtra(EasyCreateRowActivity.LAYOUT, R.layout.layout_activity_cadastro);
 
                 ActionMestre am = new ActionMestre();
                 ActionMestre.setActivity(getActivity());
@@ -62,7 +67,6 @@ public class ControlarMestreDeObraFragment extends Fragment {
             }
         });
 
-
         return v;
 
     }
@@ -70,8 +74,6 @@ public class ControlarMestreDeObraFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
-
 
         final List<MestreDeObra> mestreDeObras = new ArrayList<>();
 
@@ -87,13 +89,7 @@ public class ControlarMestreDeObraFragment extends Fragment {
                 R.layout.line_simple, rvList, getActivity()));
     }
 
-    @Override
-    public String toString() {
-        return "Mestre de obra";
-    }
-
-
-    public static class ActionMestre implements Parcelable, CustomClick {
+    public static class ActionMestre implements Parcelable, StrategyOnClick {
 
         private EditText et;
         static private Activity activity;

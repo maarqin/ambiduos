@@ -4,20 +4,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sucControlarDocumentos"
-            android:title="Controlar documentos" />
+            android:title="@string/menu_controlar_papel" />
         <item
             android:id="@+id/nav_sucConsultarSolicitacaoTransporte"
-            android:title="Solicitar transporte" />
+            android:title="@string/menu_solicitacoes" />
     </group>
-    <item android:title="Outras opções">
+    <item android:title="@string/outra_op">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_minha_conta"
-                    android:title="Minha conta" />
+                    android:title="@string/outra_op_conta" />
                 <item
                     android:id="@+id/nav_sair"
-                    android:title="Sair" />
+                    android:title="@string/outra_op_sair" />
             </group>
         </menu>
     </item>

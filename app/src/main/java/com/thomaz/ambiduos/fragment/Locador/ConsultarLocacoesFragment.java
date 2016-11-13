@@ -2,11 +2,8 @@ package com.thomaz.ambiduos.fragment.Locador;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,21 +18,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
-import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
 import com.thomaz.ambiduos.dbs.DBHelperCacamba;
-import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.support.UserDialog;
 import com.thomaz.ambiduos.to.Cacamba;
-import com.thomaz.ambiduos.to.Locacao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,38 +36,40 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View v = inflater.inflate(R.layout.fragment_consultar_locacoes, container, false);
+
+        getActivity().setTitle(R.string.title_consultar_locacao);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
 
-        System.out.println("buscarCacamba(5, getContext()) = " + buscarCacamba(5, getContext()).getId());
+//        RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
+//
+//        rvList.setHasFixedSize(true);
+//
+//        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+//        rvList.setLayoutManager(mLayoutManager);
+
+//        final List<Locacao> locacoes = new ArrayList<>();
+//
+//        locacoes.add(new Locacao("Classe IA", "Uso destinado a madeira"));
+//        locacoes.add(new Locacao("Classe IIA", "Uso destinado a ferro"));
+//        locacoes.add(new Locacao("Classe B", "Uso destinado a tijolo"));
+//        locacoes.add(new Locacao("Classe A", "Uso destinado a pó"));
+//        locacoes.add(new Locacao("Classe IA", "Uso destinado a pedra"));
+//        locacoes.add(new Locacao("Classe IIA", "Uso destinado a pedra"));
+//        locacoes.add(new Locacao("Classe IA", "Uso destinado a tijolo"));
+//        locacoes.add(new Locacao("Classe IB", "Uso destinado a ferro"));
+//        locacoes.add(new Locacao("Classe IA", "Uso destinado a ferro"));
+//        locacoes.add(new Locacao("Classe IIIA", "Uso destinado a pedra"));
+//
+//        rvList.setAdapter(new SimpleDataAdapter<>(locacoes, R.layout.line_simple, rvList, getActivity()));
 
 
-        RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
-
-        rvList.setHasFixedSize(true);
-
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        rvList.setLayoutManager(mLayoutManager);
-
-        final List<Locacao> locacoes = new ArrayList<>();
-
-        for (float i = 0; i < 10; i++) {
-            locacoes.add(new Locacao("" + (int)i, "#A" + (int)i));
-        }
-
-        rvList.setAdapter(new SimpleDataAdapter<>(locacoes, R.layout.line_simple, rvList, getActivity()));
 
         return v;
-    }
-
-    @Override
-    public String toString() {
-        return "Locações";
     }
 
     @Override
@@ -95,7 +85,7 @@ public class ConsultarLocacoesFragment extends Fragment implements OnMapReadyCal
         };
 
         for (int i = 0; i < ps.length; i++) {
-            Marker melbourne = mMap.addMarker(
+            mMap.addMarker(
                     new MarkerOptions()
                             .position(ps[i])
                             .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_residuo_cacamba))

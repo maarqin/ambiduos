@@ -8,7 +8,7 @@ import android.widget.EditText;
  * Created by thomaz on 12/11/16.
  */
 
-public interface CustomClick extends View.OnClickListener {
+public interface StrategyOnClick extends View.OnClickListener {
     void setData(EditText data);
 
     void setToClose(Activity activity);

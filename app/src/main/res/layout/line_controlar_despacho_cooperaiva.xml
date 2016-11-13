@@ -33,7 +33,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aceitar"
+            android:text="@string/bt_aceitar"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             android:layout_marginRight="10dp"
@@ -41,7 +41,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recusar"
+            android:text="@string/bt_recusar"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
             />

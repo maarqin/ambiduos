@@ -64,4 +64,14 @@ public class Cacamba implements Serializable, IAdapter, Comparable<Cacamba> {
     public int compareTo(@NonNull Cacamba cacamba) {
         return this.id.compareTo(cacamba.id);
     }
+
+    @Override
+    public String toString() {
+        return "Cacamba{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", classeResiduo=" + classeResiduo +
+                ", value=" + value +
+                '}';
+    }
 }

@@ -19,9 +19,14 @@
     <string name="permission_rationale">Permita acesso aos contatos</string>
     <string name="title_activity_maps">Mapa</string>
 
-    <string name="op_login_coop">Map</string>
-    <string name="op_login_engen">Map</string>
-    <string name="op_login_locad">Map</string>
-    <string name="op_login_mestre">Map</string>
-    <string name="op_login_transp">Map</string>
+    <string name="op_login_coop">Cooperativa</string>
+    <string name="op_login_engen">Engenheiro</string>
+    <string name="op_login_locad">Locador</string>
+    <string name="op_login_mestre">Mestre de obra</string>
+    <string name="op_login_transp">Transportador</string>
+
+    <!-- Gerais -->
+    <string name="title_inicio">Início</string>
+
+    <!-- Cooperativa -->
 </resources>

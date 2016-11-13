@@ -29,6 +29,8 @@ public class GerarSolicitacaoTransporteFragment extends Fragment implements View
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gerar_solicitacao_transporte, container, false);
 
+        getActivity().setTitle(R.string.title_solicitar_transporte);
+
         v.findViewById(R.id.next_step).setOnClickListener(this);
 
         RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
@@ -40,19 +42,17 @@ public class GerarSolicitacaoTransporteFragment extends Fragment implements View
 
         final List<Cacamba> cacambas = new ArrayList<>();
 
-        for (float i = 0; i < 10; i++) {
-            cacambas.add(new Cacamba("21441", new ClasseResiduo("Classe X"), 10));
-        }
+        cacambas.add(new Cacamba("6234", new ClasseResiduo("Classe A"), 730));
+        cacambas.add(new Cacamba("83478", new ClasseResiduo("Classe B"), 820));
+        cacambas.add(new Cacamba("235", new ClasseResiduo("Classe IIA"), 130));
+        cacambas.add(new Cacamba("946063", new ClasseResiduo("Classe B"), 110));
+        cacambas.add(new Cacamba("235", new ClasseResiduo("Classe IIB"), 2030));
+        cacambas.add(new Cacamba("78433", new ClasseResiduo("Classe B"), 100));
 
         rvList.setAdapter(new CacambaAdapter<>(cacambas, R.layout.line_solicitar_transporte_cacamba, rvList, getActivity()));
 
         return v;
 
-    }
-
-    @Override
-    public String toString() {
-        return "Solicitação de transporte";
     }
 
     @Override

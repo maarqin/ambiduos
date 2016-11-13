@@ -1,12 +1,10 @@
 package com.thomaz.ambiduos;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 
-import com.thomaz.ambiduos.to.CustomClick;
-
-import java.io.Serializable;
+import com.thomaz.ambiduos.to.StrategyOnClick;
 
 public class EasyCreateRowActivity extends AppCompatActivity {
 
@@ -23,7 +21,7 @@ public class EasyCreateRowActivity extends AppCompatActivity {
 
         EditText text = ((EditText) findViewById(R.id.tv_value));
 
-        CustomClick c = bundle.getParcelable(ACTION);
+        StrategyOnClick c = bundle.getParcelable(ACTION);
         c.setData(text);
         c.setToClose(this);
 

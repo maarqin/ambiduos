@@ -1,7 +1,5 @@
 package com.thomaz.ambiduos.fragment.Locador;
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,17 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.SimpleViewActivity_;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
-import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.to.SolicitacaoCacamba;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.EXTRA;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.KEY;
-import static com.thomaz.ambiduos.to.TypeCallForSimpleActivity.PROJECT;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +26,8 @@ public class ConsultarSolicitacaoDeCacambaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_simple_list, container, false);
+
+        getActivity().setTitle(R.string.title_solicitacoes_cacamba);
 
         RecyclerView rvList = ((RecyclerView) v.findViewById(R.id.list_simple_view));
 
@@ -54,8 +48,4 @@ public class ConsultarSolicitacaoDeCacambaFragment extends Fragment {
 
     }
 
-    @Override
-    public String toString() {
-        return "Solicitações de caçamba";
-    }
 }

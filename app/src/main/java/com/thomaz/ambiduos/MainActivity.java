@@ -1,6 +1,5 @@
 package com.thomaz.ambiduos;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 
 import com.thomaz.ambiduos.fragment.Cooperativa.ConsultarDespachoResiduoCooperativaFragment;
@@ -64,9 +61,10 @@ public class MainActivity extends BaseActivity {
 
         setNewFragment(new WelcomeFragment(), false);
 
-        View headerLayout = nvDrawer.inflateHeaderView(R.layout.nav_header);
-//        ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));
-//        ivCover.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY);
+        //View headerLayout =
+        nvDrawer.inflateHeaderView(R.layout.nav_header);
+        //ivCover = ((ImageView) headerLayout.findViewById(R.id.iv_cover_header_drawer));
+        //ivCover.setColorFilter(Color.rgb(123, 123, 123), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
         // Language

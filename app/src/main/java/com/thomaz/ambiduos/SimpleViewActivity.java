@@ -35,7 +35,7 @@ public class SimpleViewActivity extends BaseActivity {
                 title = obj.getName();
                 break;
         }
-        setNewFragment(fragment);
+        setNewFragment(fragment, false);
     }
 
 

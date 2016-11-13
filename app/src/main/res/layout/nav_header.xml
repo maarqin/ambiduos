@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nome do usuário"
+                android:text="@string/menu_ident"
                 android:textSize="17sp"
                 android:textStyle="normal"
                 android:textColor="@android:color/background_dark"

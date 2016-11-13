@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.thomaz.ambiduos.BaseActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
 import com.thomaz.ambiduos.support.UserDialog;
@@ -26,6 +25,8 @@ public class InformarCacambaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_informar_cacamba, container, false);
+
+        getActivity().setTitle(R.string.title_informar_local);
 
         final EditText text = ((EditText) v.findViewById(R.id.et_locadora));
 
@@ -50,7 +51,7 @@ public class InformarCacambaFragment extends Fragment {
                 DBHelperSolicitacaoCacamba helperSolicitacaoCacamba = new DBHelperSolicitacaoCacamba(getActivity());
                 HashMap<String, String> map = new HashMap<>();
 
-                map.put(DBHelperSolicitacaoCacamba.OBRA_ID, "-1");
+                map.put(DBHelperSolicitacaoCacamba.OBRA, "-1");
                 map.put(DBHelperSolicitacaoCacamba.LOCADORA, text.getText().toString());
                 map.put(DBHelperSolicitacaoCacamba.QTDE_CACAMBA, qtde.getText().toString());
 
@@ -74,9 +75,4 @@ public class InformarCacambaFragment extends Fragment {
         return v;
     }
 
-
-    @Override
-    public String toString() {
-        return "Enviar solicitação";
-    }
 }

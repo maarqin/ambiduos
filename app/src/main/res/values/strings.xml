@@ -1,26 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ambiduos</string>
-    <string name="drawer_open" translatable="false">Open navigation drawer</string>
-    <string name="drawer_close" translatable="false">Close navigation drawer</string>
-    <string name="str_btn_entrar" translatable="false"><b>Clique aqui</b>\npara acessar a sua conta</string>
+    <string name="drawer_open">Abrir navegação</string>
+    <string name="drawer_close">Fechar navegação</string>
+    <string name="str_btn_entrar"><b>Clique aqui</b>\npara acessar a sua conta</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="str_check_declaro" translatable="false">Declaro que li e concordei com os <b>Termos da Albatroz Turismo</b></string>
-    <string name="title_activity_login" translatable="false">Sign in</string>
+    <string name="title_activity_login">Entrar</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email" translatable="false">Email</string>
-    <string name="prompt_password" translatable="false">Senha</string>
-    <string name="prompt_type_user" translatable="false">Tipo usuário</string>
-    <string name="action_sign_in" translatable="false">Entrar</string>
-    <string name="action_sign_in_short" translatable="false">Sign in</string>
-    <string name="error_invalid_email" translatable="false">This email address is invalid</string>
-    <string name="error_invalid_password" translatable="false">This password is too short</string>
-    <string name="error_incorrect_password" translatable="false">This password is incorrect</string>
-    <string name="error_field_required" translatable="false">This field is required</string>
-    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_maps" translatable="false">Map</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Senha</string>
+    <string name="prompt_type_user">Tipo usuário</string>
+    <string name="action_sign_in">Entrar</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="error_invalid_email">Este e-mail é inválido</string>
+    <string name="error_invalid_password">Senha muito curta</string>
+    <string name="error_incorrect_password">Senha errada</string>
+    <string name="error_field_required">Campo obrigatório</string>
+    <string name="permission_rationale">Permita acesso aos contatos</string>
+    <string name="title_activity_maps">Mapa</string>
+
+    <string name="op_login_coop">Cooperativa</string>
+    <string name="op_login_engen">Engenheiro</string>
+    <string name="op_login_locad">Locador</string>
+    <string name="op_login_mestre">Mestre de obra</string>
+    <string name="op_login_transp">Transportador</string>
+
+    <!-- Gerais -->
+    <string name="title_inicio">Início</string>
+    <string name="outra_op_conta">Minha conta</string>
+    <string name="outra_op_sair">Sair</string>
+    <string name="menu_ident">Nome do usuário</string>
+    <string name="outra_op">Outras opções</string>
+    <string name="welcome">Seja bem-vindo usuário,\nacesse suas funções no menu lateral</string>
+
+    <!-- Cooperativa -->
+    <string name="menu_despacho_residuo">Controlar despacho de resíduos</string>
+    <string name="title_despacho_residuo">Despacho de resíduos</string>
+    <string name="bt_aceitar">Aceitar</string>
+    <string name="bt_recusar">Recusar</string>
+
+    <!-- Engenheiro -->
+    <string name="menu_solicitar_cacamba">Solicitar caçamba</string>
+    <string name="title_solicitar_cacamba">Solicitação de caçamba</string>
+    <string name="menu_solicitar_transporte">Solicitar transporte</string>
+    <string name="title_solicitar_transporte">Solicitação de transporte</string>
+    <string name="menu_controlar_obra">Controlar obras</string>
+    <string name="title_controlar_obra">Obras</string>
+    <string name="menu_controlar_mestre">Controlar mestre de obra</string>
+
+    <string name="title_obra_aberta">Obra aberta</string>
+    <string name="title_tab_aberta_material">Materiais</string>
+    <string name="title_tab_aberta_residuo">Resíduos</string>
+    <string name="title_tab_aberta_cacamba">Caçambas</string>
+
+    <string name="title_controlar_mestre">Mestre de obra</string>
+    <string name="hint_digite_algo">Digite aqui sua pesquisa</string>
+    <string name="bt_buscar">Buscar</string>
+
+    <!-- Locador -->
+    <string name="menu_solicitacoes_cacamba">Solicitações de caçamba</string>
+    <string name="title_solicitacoes_cacamba">@string/menu_solicitacoes_cacamba</string>
+    <string name="menu_despachar_residuo">Despachar resíduos</string>
+    <string name="title_despachar_residuo">Despacho de resíduos</string>
+    <string name="hint_despacho_residuo_obra">Escolha à obra</string>
+    <string name="hint_despacho_residuo_cacamba">Escolha à caçamba</string>
+    <string name="hint_despacho_cooperativa">Escolha à cooperativa</string>
+    <string name="bt_solicitar_despacho_cooperativa">Solicitar despacho à cooperativa</string>
+    <string name="bt_solicitar_despacho">Solicitar despacho</string>
+
+    <string name="menu_despachar_residuo_cooperativa">Despachar resíduos (Cooperativa)</string>
+    <string name="title_despachar_residuo_cooperativa">Despacho à cooperativa</string>
+    <string name="menu_consultar_locacao">Consultar locações</string>
+    <string name="title_consultar_locacao">Locações</string>
+    <string name="menu_controlar_cacamba">Controlar caçambas</string>
+    <string name="title_controlar_cacamba">Controle de caçambas</string>
+    <string name="hint_digite_buscar_cacamba">Digite o código da caçamba</string>
+    <string name="search_cacamba_nao_achada">Caçamba não encontrada</string>
+
+    <!-- Mestre -->
+    <string name="title_informar_transp">Informar transportadora</string>
+    <string name="title_informar_local">Informar locadora</string>
+    <string name="hint_esc_transp">Escolha à obra</string>
+    <string name="hint_esc_coop">Escolha à cooperativa</string>
+    <string name="bt_enviar">Enviar</string>
+
+    <!-- Transp -->
+    <string name="menu_controlar_papel">Controlar documentos</string>
+    <string name="title_controlar_papel">Documentos</string>
+    <string name="menu_solicitacoes">Solicitações de transporte</string>
+    <string name="title_solicitacoes">Solicitações</string>
+
 </resources>

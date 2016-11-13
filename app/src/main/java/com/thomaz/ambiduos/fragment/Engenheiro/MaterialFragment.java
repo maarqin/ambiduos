@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.MaterialAdapter;
 import com.thomaz.ambiduos.fragment.CustomFragment;
-import com.thomaz.ambiduos.support.RecyclerItemClickListener;
 import com.thomaz.ambiduos.to.Material;
 import com.thomaz.ambiduos.to.UnidadeMedida;
 
@@ -38,18 +37,20 @@ public class MaterialFragment extends CustomFragment {
 
         final List<Material> materials = new ArrayList<>();
 
-        for (float i = 0; i < 10; i++) {
-            materials.add(new Material("Tijolo", new UnidadeMedida("UN"), 100));
-        }
+        materials.add(new Material("Areia", new UnidadeMedida("M2"), 1250));
+        materials.add(new Material("Mosaico Mosarte Mondrian Bege", new UnidadeMedida("M2"), 50));
+        materials.add(new Material("Argamassa ACI Cerâmica Interna Cinza", new UnidadeMedida("KG"), 250));
+        materials.add(new Material("Bloco Cerâmico Vedação 9x19x19cm", new UnidadeMedida("M2"), 10250));
+        materials.add(new Material("Elemento Vazado Linha Vintage 24cmx24cmx7cm", new UnidadeMedida("UN"), 20250));
+        materials.add(new Material("Louça Esmaltado Folha Amarelo 25cmx25cmx7,5cm", new UnidadeMedida("UN"), 1250));
+        materials.add(new Material("Vazado Rústico Reto Quadrado", new UnidadeMedida("UN"), 250));
+        materials.add(new Material("Ripa Eucalipto Aplainada 3x220cm", new UnidadeMedida("M"), 1250));
+        materials.add(new Material("Ripa Eucalipto Natural Bruto", new UnidadeMedida("M"), 405));
+        materials.add(new Material("Ripa Teca Aplainada 3x210cm", new UnidadeMedida("M"), 125));
+        materials.add(new Material("Pedra", new UnidadeMedida("M"), 1250));
+        materials.add(new Material("Tinta verde-agua", new UnidadeMedida("L"), 800));
 
         rvList.setAdapter(new MaterialAdapter<>(materials, R.layout.line_material, rvList, getActivity()));
-        rvList.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-
-                    }
-                }));
 
         return v;
     }

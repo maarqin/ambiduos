@@ -11,11 +11,9 @@ import android.view.ViewGroup;
 import com.thomaz.ambiduos.BaseActivity;
 import com.thomaz.ambiduos.R;
 import com.thomaz.ambiduos.adapter.SimpleDataAdapter;
-import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
-import com.thomaz.ambiduos.to.SolicitacaoCacamba;
+import com.thomaz.ambiduos.to.Projetc;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,12 +21,14 @@ import java.util.List;
  */
 public class GerarSolicitacaoDeCacambaFragment extends Fragment implements View.OnClickListener {
 
-    private SimpleDataAdapter<SolicitacaoCacamba> adapter;
+    private SimpleDataAdapter<Projetc> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_gerar_solicitacao_de_cacamba, container, false);
+
+        getActivity().setTitle(R.string.title_solicitar_cacamba);
 
         v.findViewById(R.id.next_step).setOnClickListener(this);
 
@@ -39,28 +39,26 @@ public class GerarSolicitacaoDeCacambaFragment extends Fragment implements View.
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         rvList.setLayoutManager(mLayoutManager);
 
-        DBHelperSolicitacaoCacamba helperSolicitacaoCacamba = new DBHelperSolicitacaoCacamba(getContext());
+        final List<Projetc> projetcs = new ArrayList<>();
 
-        ArrayList<HashMap<String, String>> maps = helperSolicitacaoCacamba.all();
+        projetcs.add(new Projetc("ALAMEDA ECO RESORT & RESIDENCE", "Rua Tereza Zanette Lopes, 203, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("CHAMPS ÉLYSÉES RESIDENCE", "Rua Ernani Lacerda de Athayde, 930, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("ÉLÉGANCE", "Rua Paranaguá, 410, Centro - Londrina, PR"));
+        projetcs.add(new Projetc("LE BLANC", "R. João Huss, 855, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("PARC ROCHER", "Alameda Pé Vermelho, 180, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("PRIME PARANAGUÁ", "Rua João Huss, 881, Gleba Palhano - Londrina, PR"));
+        projetcs.add(new Projetc("TRÉSOR RESIDENCE", "Rua Gleba Palhano, 48"));
+        projetcs.add(new Projetc("VERT RESIDENCE", "Rua Quintino Niteroi, 48"));
+        projetcs.add(new Projetc("ARQUITETO VILANOVA ARTIGAS", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("AUGUSTE RODIN", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("CHAMPS ÉLYSÉES RESIDENCE", "Rua Niteroi, 48"));
+        projetcs.add(new Projetc("COLLORI", "Rua Quintino Bocaiúva, 298, Zona 07 - Maringá, PR"));
 
-        final List<SolicitacaoCacamba> solicitacaoCacambas = new ArrayList<>();
 
-        for (HashMap<String, String> map : maps) {
-            solicitacaoCacambas.add(new SolicitacaoCacamba(
-                    Integer.parseInt(map.get(DBHelperSolicitacaoCacamba.ID)),
-                    "Projeto novo brasil", ""
-            ));
-        }
-
-        adapter = new SimpleDataAdapter<>(solicitacaoCacambas, R.layout.line_solicitacao_cacamba, rvList, getActivity());
+        adapter = new SimpleDataAdapter<>(projetcs, R.layout.line_solicitacao_cacamba, rvList, getActivity());
         rvList.setAdapter(adapter);
 
         return v;
-    }
-
-    @Override
-    public String toString() {
-        return "Solicitação de caçamba";
     }
 
     @Override

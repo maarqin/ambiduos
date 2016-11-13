@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.thomaz.ambiduos.R;
-import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoCacamba;
 import com.thomaz.ambiduos.dbs.DBHelperSolicitacaoTransporte;
 import com.thomaz.ambiduos.support.UserDialog;
 
@@ -28,6 +27,9 @@ public class InformarTransporteFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_informar_transporte, container, false);
 
+        getActivity().setTitle(R.string.title_informar_transp);
+
+        final EditText etCooperativa = ((EditText) v.findViewById(R.id.et_cooperativa));
         final EditText transp = ((EditText) v.findViewById(R.id.et_transp));
         transp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +52,7 @@ public class InformarTransporteFragment extends Fragment {
 
                 map.put(DBHelperSolicitacaoTransporte.CACAMBA_ID, "-1");
                 map.put(DBHelperSolicitacaoTransporte.COOPERATIVA, transp.getText().toString());
+                map.put(DBHelperSolicitacaoTransporte.TRANSPORTADORA, etCooperativa.getText().toString());
 
                 solicitacaoTransporte.storeEach(map);
 
@@ -68,13 +71,24 @@ public class InformarTransporteFragment extends Fragment {
             }
         });
 
+        etCooperativa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserDialog dialog = UserDialog.getInstance();
+                dialog.setItems(new CharSequence[]{
+                        "Coopcativa", "IndFault Reciclagem",
+                        "ObraMil", "Avaj 2014", "NoMoreTrash Consciente"
+                });
+                dialog.setText(etCooperativa);
+
+                dialog.show(getActivity());
+
+                dialog.setClean();
+            }
+        });
+
 
         return v;
     }
 
-
-    @Override
-    public String toString() {
-        return "Informar transportadora";
-    }
 }

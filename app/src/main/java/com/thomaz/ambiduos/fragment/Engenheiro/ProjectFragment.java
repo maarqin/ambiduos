@@ -1,7 +1,9 @@
 package com.thomaz.ambiduos.fragment.Engenheiro;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -23,8 +25,10 @@ public class ProjectFragment extends CustomFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_project, container, false);
 
+        getActivity().setTitle(R.string.title_obra_aberta);
+
         ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
-        vpPager.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
+        vpPager.setAdapter(new MyPagerAdapter(getChildFragmentManager(), getActivity()));
 
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         tabs.setViewPager(vpPager);
@@ -35,9 +39,11 @@ public class ProjectFragment extends CustomFragment {
     public static class MyPagerAdapter extends FragmentPagerAdapter {
 
         private static int NUM_ITEMS = 3;
+        private Activity activity;
 
-        MyPagerAdapter(FragmentManager fragmentManager) {
+        MyPagerAdapter(FragmentManager fragmentManager, FragmentActivity activity) {
             super(fragmentManager);
+            this.activity = activity;
         }
 
         // Returns total number of pages
@@ -63,15 +69,15 @@ public class ProjectFragment extends CustomFragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            String[] titles = {"Materiais", "Resíduos", "Caçamba"};
+            String[] titles = {
+                    activity.getString(R.string.title_tab_aberta_material),
+                    activity.getString(R.string.title_tab_aberta_residuo),
+                    activity.getString(R.string.title_tab_aberta_cacamba)
+            };
 
             return titles[position];
         }
 
     }
 
-    @Override
-    public String toString() {
-        return "Obra aberta";
-    }
 }

@@ -4,29 +4,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_sucConsultarSolicitacaoDeCacamba"
-            android:title="Solicitações de caçamba" />
+            android:title="@string/menu_solicitacoes_cacamba" />
         <item
             android:id="@+id/nav_sucGerarDespachoResiduos"
-            android:title="Despachar resíduos" />
+            android:title="@string/menu_despachar_residuo" />
         <item
             android:id="@+id/nav_sucGerarDespachoResiduoCooperativa"
-            android:title="Despachar resíduos(Cooperativa)" />
+            android:title="@string/menu_despachar_residuo_cooperativa" />
         <item
             android:id="@+id/nav_sucConsultarLocacoes"
-            android:title="Consultar locações" />
+            android:title="@string/menu_consultar_locacao" />
         <item
             android:id="@+id/nav_sucControlarCacamba"
-            android:title="Controlar caçambas" />
+            android:title="@string/menu_controlar_cacamba" />
     </group>
-    <item android:title="Outras opções">
+    <item android:title="@string/outra_op">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_minha_conta"
-                    android:title="Minha conta" />
+                    android:title="@string/outra_op_conta" />
                 <item
                     android:id="@+id/nav_sair"
-                    android:title="Sair" />
+                    android:title="@string/outra_op_sair" />
             </group>
         </menu>
     </item>

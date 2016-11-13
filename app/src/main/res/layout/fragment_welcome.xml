@@ -7,9 +7,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Seja bem-vindo usuário,\n acesse suas funções no menu lateral"
+        android:text="@string/welcome"
         android:gravity="center"
-        android:textSize="19sp"
+        android:textSize="24sp"
+        android:padding="10dp"
         />
 
 </LinearLayout>

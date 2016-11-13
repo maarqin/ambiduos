@@ -1,49 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list_simple_view"
-        android:scrollbars="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:weightSum="9"
         >
 
-        <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
-            <!--android:id="@+id/singleChatFab"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:fab_colorNormal="?attr/colorAccent"-->
-            <!--app:fab_colorPressed="#00b1c7"-->
-            <!--app:fab_size="mini"-->
-            <!--app:fab_title="New chat"/>-->
-
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:id="@+id/multiple_actions"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            app:fab_addButtonColorNormal="@color/white"
-            app:fab_addButtonColorPressed="@color/white_pressed"
-            app:fab_addButtonPlusIconColor="@android:color/black"
-            android:layout_gravity="end|bottom"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:src="@mipmap/ic_add"
+            android:hint="Digite algo"
+            android:lines="1"
+            android:maxLines="1"
+            android:layout_weight="6"
+            />
+        <Button
+            android:id="@+id/bt_buscar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_buscar"
+            android:layout_weight="3"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#fff"
             />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_simple_view"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <!--<com.getbase.floatingactionbutton.FloatingActionButton-->
+                <!--android:id="@+id/singleChatFab"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:fab_colorNormal="?attr/colorAccent"-->
+                <!--app:fab_colorPressed="#00b1c7"-->
+                <!--app:fab_size="mini"-->
+                <!--app:fab_title="New chat"/>-->
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/multiple_actions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:fab_addButtonColorNormal="@color/white"
+                app:fab_addButtonColorPressed="@color/white_pressed"
+                app:fab_addButtonPlusIconColor="@android:color/black"
+                android:layout_gravity="end|bottom"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@mipmap/ic_add"
+                android:background="@color/colorPrimaryDark"
+                />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+ </LinearLayout>

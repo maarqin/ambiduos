@@ -12,6 +12,7 @@ public class DBHelperSolicitacaoTransporte extends CustomSQLiteOpenHelper {
     static public final String ID = "id";
     static public final String CACAMBA_ID = "cacamba_id";
     static public final String COOPERATIVA = "cooperativa";
+    static public final String TRANSPORTADORA = "transportadora";
 
     static public final String TABLE = "amb_transportes";
 
@@ -21,6 +22,7 @@ public class DBHelperSolicitacaoTransporte extends CustomSQLiteOpenHelper {
         fields.add(new Fields(ID, "INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL"));
         fields.add(new Fields(CACAMBA_ID, "integer"));
         fields.add(new Fields(COOPERATIVA, "text"));
+        fields.add(new Fields(TRANSPORTADORA, "text"));
     }
 
 
